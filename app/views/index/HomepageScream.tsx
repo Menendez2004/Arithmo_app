@@ -12,11 +12,13 @@ export const HomepageScream = () => {
       <View style={Homepage.conthome}>
       <Image style={Homepage.imgi} source={require('../../imgs/users.png')} />
       <Image style={Homepage.imgi2} source={require('../../imgs/settings.png')} />
-      <Text style={Homepage.info}><Text style={Homepage.a}>A</Text><Text style={Homepage.r}>r</Text><Text style={Homepage.i}>i</Text><Text style={Homepage.t}>t</Text><Text style={Homepage.h}>h</Text><Text style={Homepage.m}>m</Text><Text style={Homepage.o}>o</Text></Text>
+      <Image style={Homepage.imglog} source={require('../../imgs/icons.png')} />
     </View>
+    <View style={Homepage.contsub}>
     <Text style={Homepage.sub}>Bienvenido a arithmo, un videojuego educativo que busca enriquecer tus conocimientos y llevarlos un paso mas alla de lo que imaginas
         no importa el nivel de conocimiento matematico que tengas ya que tenemos niveles que se adaptan a tus presaberes y asi puedas tener un optimo desarrollo cognitivo
       </Text>
+    </View>
       <TouchableOpacity>
                         <Text style={Homepage.formRegisterTex} >¡Juega ya!</Text>
                     </TouchableOpacity>

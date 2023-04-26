@@ -10,33 +10,22 @@ const Homepage = StyleSheet.create({
         textAlign:'justify',
         marginLeft:20,
         marginRight:20,
-        marginTop:50
+        marginTop:29,
+        marginBottom:20,
+        color:'white'
+    },
+    contsub:{
+        backgroundColor:'#2BACBF',
+        width:350,
+        marginLeft:20,
+        borderRadius:20,
+        marginTop:30
     },
     conthome:{
         backgroundColor: '#088395',
         with:100
     },
-    a:{
-        color:'#E84B31'
-    },
-    r:{
-        color:'#AAC813'
-    },
-    i:{
-        color:'#E41E21'
-    },
-    t:{
-        color:'#E61C78'
-    },
-    h:{
-        color:'#2A90CF'
-    },
-    m:{
-        color:'#763A8E'
-    },
-    o:{
-        color:'#212121'
-    },
+    
     imgi:{
         width:30,
         height:30,
@@ -55,7 +44,7 @@ const Homepage = StyleSheet.create({
         flexDirection: 'row', 
         justifyContent: 'space-between',
         height:50,
-        marginTop:460.5,
+        marginTop:435.5,
     },
     formRegisterTex: {
         backgroundColor: '#088395',
@@ -75,6 +64,17 @@ const Homepage = StyleSheet.create({
     },
     contnav1:{
         color:'white'
+    },
+    imglog:{
+        height:50,
+        width:200,
+        marginLeft:85,
+        marginBottom:10
+    },
+    image:{
+        height:70,
+        width:70,
+        marginTop:20
     }
 
 })
