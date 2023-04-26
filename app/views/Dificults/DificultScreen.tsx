@@ -3,7 +3,6 @@ import { Text, View, Image, TextInput, TouchableOpacity } from 'react-native';
 import { StackNavigationProp } from '@react-navigation/stack'
 import { useNavigation } from '@react-navigation/native';
 import { RootStackParamList } from '../../../App';
-import { RoundedBtm } from '../../RoundedBtm';
 import DificultStyle from '../../styles/DIficultStyle';
 
 
@@ -37,11 +36,11 @@ export const DificultScreen = () => {
                     </View>
 
                     <View style={DificultStyle.dificult} >
-                        <Text style={DificultStyle.dificult_text} onPress={() => navigation.navigate('DificilScreen')}>Medio</Text>
+                        <Text style={DificultStyle.dificult_text} onPress={() => navigation.navigate('MediumScreen')}>Medio</Text>
                     </View>
 
                     <View style={DificultStyle.dificult} >
-                        <Text style={DificultStyle.dificult_text} onPress={() => navigation.navigate('MediumScreen')}>Dificil</Text>
+                        <Text style={DificultStyle.dificult_text} onPress={() => navigation.navigate('DificilScreen')}>Dificil</Text>
                     </View>
 
                     <View style={DificultStyle.dificult} >
