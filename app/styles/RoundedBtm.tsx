@@ -6,7 +6,7 @@ const RoundeStyleBtm = StyleSheet.create({
     RoundedButton:{
         width: '100%',
         height: 50,
-        backgroundColor: MyColors.primary,
+        backgroundColor: MyColors.success,
         alignItems: 'center',
         justifyContent: 'center',
         borderRadius: 15,

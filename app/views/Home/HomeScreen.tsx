@@ -56,10 +56,7 @@ export const HomeScreen = () => {
                 />
 
                 <View >
-                    <RoundedBtm text='ENTRAR' onPress={ () =>{
-                        // console.log('Email. ' + email);
-                        // console.log('Pass: ' + password)
-                    }} />
+                    <RoundedBtm text='ENTRAR' onPress={() => navigation.navigate('DificultScreen')} />
                 </View>
 
                 <View style={styles.formRegister}>
