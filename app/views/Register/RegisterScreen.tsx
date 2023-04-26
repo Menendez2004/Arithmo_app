@@ -1,5 +1,5 @@
-import React from "react";
-import {Text,View,Image,TextInput,ToastAndroid,TouchableOpacity} from "react-native";
+import React, { useEffect } from "react";
+import {Text,View,Image,TextInput,ToastAndroid,TouchableOpacity, ScrollView} from "react-native";
 import RegisterStyles from "../../styles/RegisterStyle";
 import { RoundedBtm } from "../../RoundedBtm";
 import { RestructuringImput } from "../../RestructuringImput";
@@ -13,10 +13,18 @@ export const RegisterScreen = () => {
         lastName,
         password,
         confirmPassword,
+        errorMessage,
         onChange,
         Register,
+        formValid
     } = usesViewModelRegister();
 
+    useEffect(()=>{
+        if(errorMessage != ''){
+            ToastAndroid.show(errorMessage, ToastAndroid.LONG);
+        }
+    }, [errorMessage]);
+    
     return (
         <View style={RegisterStyles.container}>
             {/*vsita del logo */}
@@ -36,7 +44,6 @@ export const RegisterScreen = () => {
                     />
                     <Text style={RegisterStyles.logotext}>Seleciona una imagen</Text>
                 </View>
-
                     <RestructuringImput
                         placeholder="Nombres"
                         KeyboardType="default"
@@ -85,7 +92,11 @@ export const RegisterScreen = () => {
                     />
 
                     <View>
-                        <RoundedBtm text="CONFIRMAR" onPress={() => Register()} />
+                        <RoundedBtm text="CONFIRMAR" onPress={() => {
+                            if ( formValid()){
+                                Register();
+                            }
+                        }}/>
                     </View>
 
 

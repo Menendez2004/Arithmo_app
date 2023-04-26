@@ -1,8 +1,76 @@
 const db = require('../config/config');
+const bcryptjs = require('bcryptjs')
 
 const User = {};
 
-User.create = (user, result) =>{
+User.findById = (id, result) =>{
+
+    const sql = `
+    SELECT
+        id, 
+        email,
+        name,
+        image,
+        password
+    FROM
+        users
+    WHERE
+        id = ? 
+    `;
+
+    db.query(
+        sql,
+        [id],
+        (err, res) =>{
+            if (err){
+                console.log('ERROR:', err);
+            }
+            else{
+                console.log('Id del nuevo usuario: ', res.insertId);
+                result(null, res.insertId);
+            }
+        }
+        
+    )
+
+}
+
+User.findByEmail = (id, result) =>{
+
+    const sql = `
+    SELECT
+        id, 
+        email,
+        name,
+        image,
+        password
+    FROM
+        users
+    WHERE
+        email = ? 
+    `;
+
+    db.query(
+        sql,
+        [email],
+        (err, res) =>{
+            if (err){
+                console.log('ERROR:', err);
+            }
+            else{
+                console.log('Id del nuevo usuario: ', res.insertId);
+                result(null, res.insertId);
+            }
+        }
+        
+    )
+
+}
+
+User.create = async (user, result) =>{
+
+    const hash = await bcryptjs.hash(user.password, 10);
+
     const sql = `
         INSERT INTO
             users(
@@ -26,17 +94,17 @@ User.create = (user, result) =>{
             user.name,
             user.lastName,
             user.image,
-            user.password,
+            hash,
             new Date(),
             new Date()
         ],
-        (err, res) =>{
+        (err, user) =>{
             if (err){
                 console.log('ERROR:', err);
             }
             else{
-                console.log('Id del nuevo usuario: ', res.insertId);
-                result(null, res.insertId);
+                console.log('USUARUIO:: ', user);
+                result(null, user);
             }
         }
     )

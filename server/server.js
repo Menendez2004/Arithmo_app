@@ -29,7 +29,7 @@ const cors = require("cors");
 
     userRoutes(app);
 
-server.listen(3000, '192.168.1.5' || 'localhost', function(){
+server.listen(3000, '192.168.1.15' || 'localhost', function(){
     console.log('Node aplication ' + process.pid + ' iniciada');
 });
 
