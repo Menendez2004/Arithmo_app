@@ -1,37 +1,30 @@
-import React, { useState } from 'react'
-import { ArithmoApi } from '../../src/data/source/remote/api/ArithmoApi';
+import React, { useState } from "react";
+import { RegisterAuthUseCase } from "../../src/Domain/useCase/auth/RegisterAuth";
 
- const RegisterViewModel = () => {
-    const [values, setValues] = useState({
-        name: "",
-        lastName: "",
-        email: "",
-        password: "",
-        confirmPassword: "", 
-    });
 
-    const onChange = (property: string, value: any) => {
-        setValues({ ...values, [property]: value });
-    }
+const RegisterViewModel = () => {
+  const [values, setValues] = useState({
+    name: "",
+    lastName: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
 
-    const Register = async() =>{
-      try {
-        
-        const response = await ArithmoApi.post('/users/create', values);
-        console.log('RESPONSE: ' + JSON.stringify(response));
+  const onChange = (property: string, value: any) => {
+    setValues({ ...values, [property]: value });
+  };
 
-      } catch (error) {
-        console.log('ERROR : ' + error)
-      }
-
-    }
-  return{
-
+  const Register = async () => {
+    const { result, error } = await RegisterAuthUseCase(values);
+    console.log('RESULT: ' + JSON.stringify(result));
+    console.log('ERROR: ' + error);
+  };
+  return {
     ...values,
-    onChange, 
-    Register
-    
-  }
-}
+    onChange,
+    Register,
+  };
+};
 
-export default RegisterViewModel; 
+export default RegisterViewModel;

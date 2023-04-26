@@ -21,12 +21,9 @@ export const RegisterScreen = () => {
         <View style={RegisterStyles.container}>
             {/*vsita del logo */}
 
-
-
             {/*ivista del botón de la password*/}
             {/*Formulario flotante*/}
             <View style={RegisterStyles.form}>
-
                 <Image
                     style={RegisterStyles.burbu}
                     source={require("../../imgs/burbu.png")}
@@ -49,8 +46,6 @@ export const RegisterScreen = () => {
                         value={name}
                     />
 
-
-
                     <RestructuringImput
                         placeholder="Apellidos"
                         KeyboardType="default"
@@ -60,8 +55,6 @@ export const RegisterScreen = () => {
                         value={lastName}
                     />
 
-
-
                     <RestructuringImput
                         placeholder="Email"
                         KeyboardType="default"
@@ -70,7 +63,6 @@ export const RegisterScreen = () => {
                         onChangeText={onChange}
                         value={email}
                     />
-
 
                     <RestructuringImput
                         placeholder="Contraseña"
