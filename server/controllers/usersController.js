@@ -33,6 +33,7 @@ module.exports = {
 
             if(isPassValid){
                 const token = jwt.sign({id:data.id, email: data.email}, keys.secretOrkey,{});
+                
             }
 
             return res.status(201).json({
