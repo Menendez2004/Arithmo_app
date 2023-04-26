@@ -32,7 +32,7 @@ export const DificultScreen = () => {
                 <View style={DificultStyle.container_3}>
 
                     <View style={DificultStyle.dificult} >
-                        <Text style={DificultStyle.dificult_text} onPress={() => navigation.navigate('FacilScreen')}>Fácil</Text>
+                        <Text style={DificultStyle.dificult_text} onPress={() => navigation.navigate('HomepageScream')}>Fácil</Text>
                     </View>
 
                     <View style={DificultStyle.dificult} >

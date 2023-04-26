@@ -8,6 +8,7 @@ import { FacilScreen } from './app/views/Dificults/FacilScreen';
 import { DificilScreen } from './app/views/Dificults/DificilScreen';
 import { MediumScreen } from './app/views/Dificults/MediumScreen';
 import { ExpertScreen } from './app/views/Dificults/ExpertScreen';
+import { HomepageScream } from './app/views/index/HomepageScream';
 
 export type RootStackParamList ={
   HomeScreen: undefined,
@@ -17,6 +18,7 @@ export type RootStackParamList ={
   DificilScreen: undefined,
   MediumScreen: undefined,
   ExpertScreen: undefined,
+  HomepageScream: undefined,
 };
 
 const Stack= createNativeStackNavigator<RootStackParamList>();
@@ -74,7 +76,13 @@ const App = () =>{
           headerShown: true,
           title: "ExpertScreen"
         }}/>
-        
+        <Stack.Screen 
+        name='HomepageScream' 
+        component={HomepageScream} 
+        options={{
+          headerShown: true,
+          title: "Homepage"
+        }}/>
       </Stack.Navigator>
     </NavigationContainer>
   )
