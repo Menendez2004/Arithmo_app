@@ -4,6 +4,6 @@ export const MyColors = {
 
     primary: '#8b16ff',
     secondary: '#E14D2A',
-    background: '#EEEEEE'
-
+    background: '#EEEEEE',
+    success: '#05BFDB'
 }

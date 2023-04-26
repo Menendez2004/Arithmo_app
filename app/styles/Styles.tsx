@@ -63,9 +63,9 @@ const styles = StyleSheet.create({
     },
     formRegisterTex: {
         fontStyle: "italic",
-        color: '#8b16ff',
+        color: '#05BFDB',
         borderBottomWidth: 1,
-        borderBottomColor: '#8b16ff',
+        borderBottomColor: '#05BFDB',
         fontWeight: 'bold',
         marginLeft: 10
 

@@ -3,11 +3,20 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { HomeScreen } from './app/views/Home/HomeScreen';
 import { RegisterScreen } from './app/views/Register/RegisterScreen';
+import { DificultScreen } from './app/views/Dificults/DificultScreen';
+import { FacilScreen } from './app/views/Dificults/FacilScreen';
+import { DificilScreen } from './app/views/Dificults/DificilScreen';
+import { MediumScreen } from './app/views/Dificults/MediumScreen';
+import { ExpertScreen } from './app/views/Dificults/ExpertScreen';
 
 export type RootStackParamList ={
   HomeScreen: undefined,
   RegisterScreen: undefined,
-
+  DificultScreen: undefined,
+  FacilScreen: undefined,
+  DificilScreen: undefined,
+  MediumScreen: undefined,
+  ExpertScreen: undefined,
 };
 
 const Stack= createNativeStackNavigator<RootStackParamList>();
@@ -30,6 +39,42 @@ const App = () =>{
           headerShown: true,
           title: "Registrate"
         }}/>
+        <Stack.Screen 
+        name="DificultScreen" 
+        component={DificultScreen} 
+        options={{
+          headerShown: true,
+          title: "DificultScreen"
+        }}/>
+        <Stack.Screen 
+        name="FacilScreen" 
+        component={FacilScreen} 
+        options={{
+          headerShown: true,
+          title: "FacilScreen"
+        }}/>
+        <Stack.Screen 
+        name="DificilScreen" 
+        component={DificilScreen} 
+        options={{
+          headerShown: true,
+          title: "DificilScreen"
+        }}/>
+        <Stack.Screen 
+        name="MediumScreen" 
+        component={MediumScreen} 
+        options={{
+          headerShown: true,
+          title: "MediumScreen"
+        }}/>
+        <Stack.Screen 
+        name="ExpertScreen" 
+        component={ExpertScreen} 
+        options={{
+          headerShown: true,
+          title: "ExpertScreen"
+        }}/>
+        
       </Stack.Navigator>
     </NavigationContainer>
   )

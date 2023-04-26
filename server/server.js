@@ -31,7 +31,7 @@ app.set('port', port);
 
 userRoutes(app);
 
-server.listen(3000, '10.10.5.8' || 'localhost', function(){
+server.listen(3000, '192.168.1.5' || 'localhost', function(){
     console.log('Node aplication ' + process.pid + ' iniciada');
 });
 
