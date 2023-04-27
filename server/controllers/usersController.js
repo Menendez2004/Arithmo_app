@@ -1,16 +1,16 @@
 const User = require("../models/user");
-const bcryptjs = require('bcryptjs')
+const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken');
-const tokens = require('../config/tokens');
+const keys = require('../config/keys');
 
 module.exports = {
 
-    login(req, res){
+    login(req, res) {
 
         const email = req.body.email;
         const password = req.body.password;
 
-        User.findByEmail(email, async (err, data) => {
+        User.findByEmail(email, async (err, myUser) => {
             if (err) {
                 console.log('ENTRO EN EL ERROR');
                 return res.status(501).json({
@@ -20,30 +20,46 @@ module.exports = {
                 });
             }
 
-            if (!data){
+            if (!myUser) {
                 //No auth
-                onsole.log('ENTRO EN EL ERROR');
+                console.log('ENTRO EN EL ERROR');
                 return res.status(401).json({
                     success: false,
-                    message: "email no encotrad",
+                    message: "Email inexistente",
                 });
             }
 
-            const isPassValid = await bcrypt.compare(password, data.password);
+            const isPassValid = await bcrypt.compare(password, myUser.password);
 
-            if(isPassValid){
-                const token = jwt.sign({id:data.id, email: data.email}, keys.secretOrkey,{});
-                
+            if (isPassValid) {
+                const token = jwt.sign({ id: myUser.id, email: myUser.email }, keys.secretOrkey, {});
+                const data = {
+                    id: myUser.id,
+                    email: myUser.email,
+                    name: myUser.name,
+                    lastName: myUser.lastName,
+                    password: myUser.password,
+                    image: myUser.image,
+                    session_token: `JWT ${token}`
+                }
+
+                return res.status(201).json({
+                    success: true,
+                    message: "Usuario encontrado ",
+                    data: data, //El nuevo usuario que se acaba de registrar
+                });
+
             }
-
-            return res.status(201).json({
-                success: true,
-                message: "Registro realizado correctamente",
+            return res.status(401).json({
+                success: false,
+                message: "password incorrecto ", //23:39 min
                 data: data, //El nuevo usuario que se acaba de registrar
             });
+
+
         });
-            
-        
+
+
 
     },
 

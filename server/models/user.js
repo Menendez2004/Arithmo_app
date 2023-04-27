@@ -10,6 +10,7 @@ User.findById = (id, result) =>{
         id, 
         email,
         name,
+        lastName,
         image,
         password
     FROM
@@ -26,8 +27,8 @@ User.findById = (id, result) =>{
                 console.log('ERROR:', err);
             }
             else{
-                console.log('Id del nuevo usuario: ', res.insertId);
-                result(null, res.insertId);
+                console.log('Id del nuevo usuario: ', res);
+                result(null, res);
             }
         }
         
@@ -35,13 +36,14 @@ User.findById = (id, result) =>{
 
 }
 
-User.findByEmail = (id, result) =>{
+User.findByEmail = (email, result) =>{
 
     const sql = `
     SELECT
         id, 
         email,
         name,
+        lastName,
         image,
         password
     FROM
