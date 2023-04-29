@@ -22,13 +22,14 @@ User.findById = (id, result) =>{
     db.query(
         sql,
         [id],
-        (err, res) =>{
+        (err, user) =>{
             if (err){
                 console.log('ERROR:', err);
+                console.log(err, null)
             }
             else{
-                console.log('Id del nuevo usuario: ', res);
-                result(null, res);
+                console.log('Id del nuevo usuario: ', user);
+                result(null, user);
             }
         }
         

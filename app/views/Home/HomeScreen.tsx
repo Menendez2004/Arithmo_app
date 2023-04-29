@@ -37,6 +37,7 @@ export const HomeScreen = () => {
 
                 
                 <RestructuringImput
+                
                 image={require('../../imgs/email.png')}
                 placeholder='correo electronico'
                 KeyboardType='email-address'
