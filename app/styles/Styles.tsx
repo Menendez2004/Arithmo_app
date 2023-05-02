@@ -15,14 +15,11 @@ const styles = StyleSheet.create({
         borderTopLeftRadius: 45,
         borderTopRightRadius: 45,
         padding: 35,
-
     },
     formText: {
         fontWeight: 'bold',
         marginTop: 15,
         fontSize: 20,
-
-
     },
     burbu: {
         marginLeft: 225,
@@ -33,7 +30,8 @@ const styles = StyleSheet.create({
         width: 172,
         height: 100,
         margin: 55,
-        marginLeft: -75
+        marginLeft: -75,
+        marginTop: 120
     },
     texImputForm: {
         flex: 1,
@@ -73,7 +71,8 @@ const styles = StyleSheet.create({
     },
     logoContainer: {
         alignSelf: 'center',
-        margin: 48
+        margin: 48,
+        marginTop:120
     },
     logoImage: {
 

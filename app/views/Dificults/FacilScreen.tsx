@@ -1,9 +1,15 @@
 import React from 'react'
 import { Text, View, Image, TextInput, TouchableOpacity } from 'react-native';
+import { StackNavigationProp } from '@react-navigation/stack'
+import { useNavigation } from '@react-navigation/native';
+import { RootStackParamList } from '../../../App';
 import LevelStyle from '../../styles/LevelStyle';
 
 
 export const FacilScreen = () => {
+
+    const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
+
     return (
         <View style={LevelStyle.container}>
 
@@ -21,7 +27,7 @@ export const FacilScreen = () => {
                     <View >
                         <View style={LevelStyle.container_4}>
                             <View style={LevelStyle.level}>
-                                <Text style={LevelStyle.level_text}>1</Text>
+                                <Text style={LevelStyle.level_text} onPress={() => navigation.navigate('GameScreen')} >1</Text>
                             </View>
                             <Text style={LevelStyle.text_2}>Completado</Text>
                         </View>

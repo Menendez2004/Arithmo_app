@@ -10,6 +10,7 @@ import { MediumScreen } from './app/views/Dificults/MediumScreen';
 import { ExpertScreen } from './app/views/Dificults/ExpertScreen';
 import { HomepageScream } from './app/views/index/HomepageScream';
 import { InfoProfileScreen } from './app/views/profile/infoProfile';
+import { GameScreen } from './app/views/game/GameScreen';
 
 export type RootStackParamList ={
   //principals screens 
@@ -23,6 +24,7 @@ export type RootStackParamList ={
   MediumScreen: undefined,
   ExpertScreen: undefined,
   HomepageScream: undefined,
+  GameScreen: undefined,
 };
 
 const Stack= createNativeStackNavigator<RootStackParamList>();
@@ -91,6 +93,13 @@ const App = () =>{
         options={{
           headerShown: true,
           title: "Homepage"
+        }}/>
+         <Stack.Screen 
+        name='GameScreen' 
+        component={GameScreen} 
+        options={{
+          headerShown: true,
+          title: "GameScreen"
         }}/>
       </Stack.Navigator>
     </NavigationContainer>
