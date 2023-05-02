@@ -11,6 +11,9 @@ module.exports = {
         const password = req.body.password;
 
         User.findByEmail(email, async (err, myUser) => {
+
+
+
             if (err) {
                 console.log('ENTRO EN EL ERROR');
                 return res.status(501).json({
@@ -20,19 +23,19 @@ module.exports = {
                 });
             }
 
-            if (!myUser) {
+            if (!myUser ) {
                 //No auth
                 console.log('ENTRO EN EL ERROR');
-                return res.status(401).json({
+                return res.status(401).json({//no tiene autorizacion el usuario
                     success: false,
-                    message: "Email inexistente",
+                    message: "El email no esta registrado",
                 });
             }
 
             const isPassValid = await bcrypt.compare(password, myUser.password);
 
             if (isPassValid) {
-                const token = jwt.sign({ id: myUser.id, email: myUser.email }, keys.secretOrkey, {});
+                const token = jwt.sign({ id: myUser.id, email: myUser.email }, keys.secretOrKey, {});
                 const data = {
                     id: myUser.id,
                     email: myUser.email,
@@ -41,21 +44,22 @@ module.exports = {
                     password: myUser.password,
                     image: myUser.image,
                     session_token: `JWT ${token}`
-                }
+                };
 
                 return res.status(201).json({
                     success: true,
-                    message: "Usuario encontrado ",
-                    data: data, //El nuevo usuario que se acaba de registrar
+                    message: "Usuario autentificado ",
+                    data: data //El nuevo usuario que se acaba de registrar
                 });
 
             }
-            return res.status(401).json({
-                success: false,
-                message: "password incorrecto ", //23:39 min
-                data: data, //El nuevo usuario que se acaba de registrar
-            });
-
+            else {
+                
+                return res.status(401).json({
+                    success: false,
+                    message: "password incorrecto ", 
+                });
+            }
 
         });
 

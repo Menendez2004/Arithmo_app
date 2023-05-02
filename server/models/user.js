@@ -28,7 +28,7 @@ User.findById = (id, result) =>{
                 console.log(err, null)
             }
             else{
-                console.log('Id del nuevo usuario: ', user);
+                console.log('USUARIO RECIBIDO : ', user);
                 result(null, user);
             }
         }
@@ -56,13 +56,13 @@ User.findByEmail = (email, result) =>{
     db.query(
         sql,
         [email],
-        (err, res) =>{
+        (err, user) =>{
             if (err){
                 console.log('ERROR:', err);
             }
             else{
-                console.log('Id del nuevo usuario: ', res.insertId);
-                result(null, res.insertId);
+                console.log('Id del nuevo usuario: ', user[0]);
+                result(null, user[0]);
             }
         }
         
@@ -89,8 +89,7 @@ User.create = async (user, result) =>{
 
     `;
 
-    db.query
-    (
+    db.query(
         sql,
         [
             user.email,

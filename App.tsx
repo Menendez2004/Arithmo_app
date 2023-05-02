@@ -9,10 +9,14 @@ import { DificilScreen } from './app/views/Dificults/DificilScreen';
 import { MediumScreen } from './app/views/Dificults/MediumScreen';
 import { ExpertScreen } from './app/views/Dificults/ExpertScreen';
 import { HomepageScream } from './app/views/index/HomepageScream';
+import { InfoProfileScreen } from './app/views/profile/infoProfile';
 
 export type RootStackParamList ={
+  //principals screens 
   HomeScreen: undefined,
   RegisterScreen: undefined,
+  InfoProfileScreen: undefined,
+
   DificultScreen: undefined,
   FacilScreen: undefined,
   DificilScreen: undefined,
@@ -41,6 +45,11 @@ const App = () =>{
           headerShown: true,
           title: "Registrate"
         }}/>
+        <Stack.Screen
+          name="InfoProfileScreen"
+          component={InfoProfileScreen}
+          options={{title: 'InfoProfileScreen'}}
+        />
         <Stack.Screen 
         name="DificultScreen" 
         component={DificultScreen} 

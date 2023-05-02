@@ -1,18 +1,33 @@
-import React from 'react'
-import { Text, View, Image, TextInput, TouchableOpacity } from 'react-native';
-import styles from '../../styles/Styles';
-import { StackNavigationProp } from '@react-navigation/stack'
+import React, {useState, useEffect } from 'react'
+import { StackNavigationProp, StackScreenProps } from '@react-navigation/stack'
 import { useNavigation } from '@react-navigation/native';
-import {RestructuringImput} from '../../RestructuringImput'
-import { RoundedBtm } from '../../RoundedBtm';
-import { RootStackParamList } from '../../../App';
+import { Text, View, Image, TouchableOpacity, ToastAndroid } from 'react-native';
+import styles from '../../styles/Styles';
 import useViewModelHome from './ServiceHome'
+import { RoundedBtm } from '../../RoundedBtm';
+import {RestructuringImput} from '../../RestructuringImput'
+import { RootStackParamList } from '../../../App';
 
-export const HomeScreen = () => {
-    const { email, password, onChange } = useViewModelHome()
+interface Props extends StackScreenProps<RootStackParamList, 'HomeScreen'>{};
 
-    const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
+export const HomeScreen = ({navigation, route}:Props) => {
+    const { email, password, onChange, login, errorMessage, user} = useViewModelHome();
 
+        
+    useEffect(() => {
+        if (errorMessage !== '') {
+            ToastAndroid.show(errorMessage, ToastAndroid.LONG);
+        }
+    }, [errorMessage])
+    
+    
+    useEffect(() => {
+        
+        if(user?.id == null && user?.id === undefined) {
+            navigation.navigate('InfoProfileScreen');
+        }
+    }, [user])
+    
     return (
 //Etiqueta view funciona como uina columna
         //vista main, contenedor de todo
@@ -49,15 +64,17 @@ export const HomeScreen = () => {
                 {/*ivista del botón de la password*/}
                 <RestructuringImput
                 image={require('../../imgs/Password.png')}
-                placeholder='Contraseña'
+                placeholder='password'
                 KeyboardType='default'
                 property='password'
                 onChangeText={onChange}
                 value={password}
+                secureTextEntry={true}
+
                 />
 
                 <View >
-                    <RoundedBtm text='ENTRAR' onPress={() => navigation.navigate('DificultScreen')} />
+                    <RoundedBtm text='ENTRAR' onPress={() => login()} />
                 </View>
 
                 <View style={styles.formRegister}>

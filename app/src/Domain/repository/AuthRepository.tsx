@@ -4,5 +4,6 @@ import { User } from "../entities/User"
 
 export interface AuthRepository {
 
-    register(user: User): Promise<ResponseAPI>
+    login(email: string, password: string): Promise<ResponseAPI>;
+    register(user: User): Promise<ResponseAPI>;
 };

@@ -25,7 +25,23 @@ const RegisterViewModel = () => {
 
   };
 
+  const isValidEmail = (email: string): boolean => {
+    let validEmail = false;
+    email = email.trim().toLowerCase();
+        let pattern = /^[\w-']+(\.[\w-']+)*@([a-zA-Z0-9]+[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*?\.[a-zA-Z]{2,6}|(\d{1,3}\.){3}\d{1,3})(:\d{4})?$/;
+        validEmail = pattern.test(email);
+        //console.log(pattern.test(email))
+ 
+    return validEmail;
+}
+
   const formValid = (): boolean => {
+
+    if (!isValidEmail(values.email)) {
+      setErrorMessage('El email no es valido');
+      return false;
+  }
+
     if (values.name === '') {
       setErrorMessage('El campo: Nombre no puede estar vacio');
       return false;
@@ -50,10 +66,13 @@ const RegisterViewModel = () => {
       setErrorMessage('Las contraseñas no coinciden, verifica que hayas escrito correctamenete tu contraseña nuevamente');
       return false;
     }
-
     return true;
-
+    
   }
+
+  
+
+  
 
   return {
     ...values,
@@ -61,6 +80,7 @@ const RegisterViewModel = () => {
     Register,
     formValid,
     errorMessage,
+    isValidEmail
   };
 };
 

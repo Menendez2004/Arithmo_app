@@ -5,6 +5,7 @@ import { ArithmoApi } from "../source/remote/api/ArithmoApi";
 import { ResponseAPI } from "../source/remote/api/model/ResponseApi";
 
 export class AuthRepositoryImpl implements AuthRepository {
+    
     async register(user: User): Promise<ResponseAPI> {
         try {
 
@@ -19,7 +20,26 @@ export class AuthRepositoryImpl implements AuthRepository {
 
         };
     };
+
+    async login(email: string, password: string): Promise<ResponseAPI> {
+        try {
+
+            const response = await ArithmoApi.post<ResponseAPI>("/users/login", {
+                email: email,
+                password: password
+            });
+            return Promise.resolve(response.data);
+
+        } catch (error) { 
+            let e = (error as AxiosError);
+            console.log("ERROR: " + JSON.stringify(e.response?.data));
+            const apiError:ResponseAPI = JSON.parse(JSON.stringify(e.response?.data))
+            return Promise.resolve(apiError);
+
+        };
+    };
 };
+
 
 
 
