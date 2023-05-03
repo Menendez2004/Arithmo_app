@@ -1,5 +1,5 @@
 import React from 'react'
-import { OutUserCase } from '../../src/Domain/useCase/localUser/outUser';
+import { OutUserCase } from '../../src/Domain/useCase/localUser/localOutUser';
 
 const ServiceProfileInfo = () => {
 
@@ -9,7 +9,7 @@ const ServiceProfileInfo = () => {
 
   return {
     removeSession
+    }
   }
-}
 
 export default ServiceProfileInfo;

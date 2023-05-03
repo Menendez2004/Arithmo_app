@@ -16,7 +16,7 @@ export class LocalSessionRepoImpl implements LocalSessionRepo{
         return user;
     };
 
-    async outUser(): Promise<void> {
+    async outUser(): Promise<void> { 
         const { outUser } = LocalStorage();
         await outUser('user');
     };

@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import {Text,View,Image,TextInput,ToastAndroid,TouchableOpacity, ScrollView} from "react-native";
+import {Text,View,Image,TextInput,ToastAndroid,TouchableOpacity, ScrollView, StyleSheet} from "react-native";
 import RegisterStyles from "../../styles/RegisterStyle";
 import { RoundedBtm } from "../../RoundedBtm";
 import { RestructuringImput } from "../../RestructuringImput";
@@ -38,13 +38,15 @@ export const RegisterScreen = () => {
                 />
 
                 <View style={RegisterStyles.logoContainer}>
-                    <Image
-                        source={require("../../imgs/user_image.png")}
+                    <Image 
+                        source={require("../../imgs/profile.png")}
                         style={RegisterStyles.logoImage}
                     />
                     <Text style={RegisterStyles.logotext}>Seleciona una imagen</Text>
                 </View>
-                    <RestructuringImput
+
+                    <RestructuringImput 
+                        
                         placeholder="Nombres"
                         KeyboardType="default"
                         image={require("../../imgs/Name.png")}
@@ -53,7 +55,7 @@ export const RegisterScreen = () => {
                         value={name}
                     />
 
-                    <RestructuringImput
+                    <RestructuringImput 
                         placeholder="Apellidos"
                         KeyboardType="default"
                         image={require("../../imgs/lastname.png")}

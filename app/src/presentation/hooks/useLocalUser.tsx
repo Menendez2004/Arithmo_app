@@ -1,5 +1,5 @@
 import React,{useEffect, useState} from 'react'
-import { GetUserCase } from "../../../src/Domain/useCase/localUser/getUser";
+import { GetUserCase } from '../../Domain/useCase/localUser/localGetUser';
 import { User } from '../../Domain/entities/User';
 
 

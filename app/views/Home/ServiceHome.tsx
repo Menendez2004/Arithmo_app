@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { LoginAuthCase } from '../../src/Domain/useCase/auth/LoginAuth';
-import { SaveUserCase } from '../../src/Domain/useCase/localUser/saveUser';
-import { GetUserCase } from "../../src/Domain/useCase/localUser/getUser";
+import { SaveUserCase } from '../../src/Domain/useCase/localUser/localSaveUser';
+import { GetUserCase } from "../../src/Domain/useCase/localUser/localGetUser";
 import { useLocalUser } from '../../src/presentation/hooks/useLocalUser';
 
 const HomeViewModel = () => {
@@ -12,7 +12,7 @@ const HomeViewModel = () => {
     });
 
     const { user, getUserSession } = useLocalUser();
-    console.log('USUARIO EN SESSION: ' + JSON.stringify(user));
+    console.log('USUARIO DE SESSION: ' + JSON.stringify(user));
     
     const onChange = (property: string, value: any) => {
         setValues({ ...values, [property]: value });

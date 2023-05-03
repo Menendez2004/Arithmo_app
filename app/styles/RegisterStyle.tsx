@@ -19,7 +19,7 @@ const RegisterStyles = StyleSheet.create({
 
     },
     burbu: {
-        marginLeft: 237,
+        marginLeft: 238,
         width: 160,
         height: 95,
     },
@@ -79,8 +79,9 @@ const RegisterStyles = StyleSheet.create({
     logotext: {
         color: 'black',
         textAlign: 'center',
+        alignContent: "center",
         fontSize: 15,
-        marginTop: 5,
+        marginTop: 14,
         fontWeight: 'bold'
     },
     rightBurble: {

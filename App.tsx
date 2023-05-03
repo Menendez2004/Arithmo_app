@@ -17,12 +17,12 @@ export type RootStackParamList ={
   RegisterScreen: undefined,
   InfoProfileScreen: undefined,
 
-  DificultScreen: undefined,
-  FacilScreen: undefined,
-  DificilScreen: undefined,
-  MediumScreen: undefined,
-  ExpertScreen: undefined,
-  HomepageScream: undefined,
+  // DificultScreen: undefined,
+  // FacilScreen: undefined,
+  // DificilScreen: undefined,
+  // MediumScreen: undefined,
+  // ExpertScreen: undefined,
+  // HomepageScream: undefined,
 };
 
 const Stack= createNativeStackNavigator<RootStackParamList>();
@@ -48,9 +48,8 @@ const App = () =>{
         <Stack.Screen
           name="InfoProfileScreen"
           component={InfoProfileScreen}
-          options={{title: 'InfoProfileScreen'}}
         />
-        <Stack.Screen 
+        {/* <Stack.Screen 
         name="DificultScreen" 
         component={DificultScreen} 
         options={{
@@ -91,7 +90,7 @@ const App = () =>{
         options={{
           headerShown: true,
           title: "Homepage"
-        }}/>
+        }}/> */}
       </Stack.Navigator>
     </NavigationContainer>
   )

@@ -18,7 +18,7 @@ export const InfoProfileScreen = ({navigation, route}: Props) => {
           removeSession();
           navigation.navigate('HomeScreen')
         }}
-        title='Cerrar sesión'/>
+        title='Cerrar sesión'/>   
     </View>
   )
 }

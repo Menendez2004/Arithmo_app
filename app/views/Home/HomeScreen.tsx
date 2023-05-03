@@ -1,6 +1,5 @@
 import React, {useState, useEffect } from 'react'
-import { StackNavigationProp, StackScreenProps } from '@react-navigation/stack'
-import { useNavigation } from '@react-navigation/native';
+import {  StackScreenProps } from '@react-navigation/stack'
 import { Text, View, Image, TouchableOpacity, ToastAndroid } from 'react-native';
 import styles from '../../styles/Styles';
 import useViewModelHome from './ServiceHome'
@@ -23,8 +22,8 @@ export const HomeScreen = ({navigation, route}:Props) => {
     
     useEffect(() => {
         
-        if(user?.id == null && user?.id === undefined) {
-            navigation.navigate('InfoProfileScreen');
+        if(user?.session_token !== null && user?.session_token !== undefined) {
+            navigation.replace('InfoProfileScreen');
         }
     }, [user])
     
