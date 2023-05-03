@@ -71,9 +71,11 @@ const RegisterStyles = StyleSheet.create({
         margin: -16.7,
     },
     logoImage: {
-        width: 100,
-        height: 100,
-        marginTop: -10,
+        width: 120,
+        height: 120,
+        // marginTop: -1,
+        borderRadius: 60,
+        marginLeft: 2,
 
     },
     logotext: {

@@ -11,11 +11,12 @@ const RegisterViewModel = () => {
     name: "",
     lastName: "",
     email: "",
+    image: "",
     password: "",
     confirmPassword: "",
   });
 
-  const [upload, setUpload] = useState<ImagePicker.ImagePickerAsset>();
+  const [upload, setUpload] = useState<ImagePicker.ImagePickerAsset>();//es lo mismo que ImageInfo, ya que ya esta deprecado
 
   const SelecImage = async () => {
     // No permissions request is necessary for launching the image library
@@ -27,7 +28,7 @@ const RegisterViewModel = () => {
     });
     
     if ( !result.canceled ){
-      onChange('Image', result.assets[0].uri);
+      onChange('image', result.assets[0].uri);
       setUpload(result.assets[0]);
       
     }
@@ -101,6 +102,7 @@ const RegisterViewModel = () => {
     Register,
     formValid,
     errorMessage,
+    SelecImage,
     isValidEmail
   };
 };

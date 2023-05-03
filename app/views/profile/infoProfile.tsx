@@ -13,6 +13,10 @@ export const InfoProfileScreen = ({navigation, route}: Props) => {
 
   return (
     <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+
+
+
+      
         <Button
         onPress={() =>{
           removeSession();

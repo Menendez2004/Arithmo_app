@@ -34,7 +34,7 @@ const passport = require('passport')
 
     userRoutes(app);
 
-server.listen(3000, '192.168.1.15' || 'localhost', function(){
+server.listen(3000, '192.168.137.1' || 'localhost', function(){
     console.log('Node aplication ' + process.pid + ' iniciada');
 });
 

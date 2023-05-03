@@ -14,9 +14,11 @@ export const RegisterScreen = () => {
         password,
         confirmPassword,
         errorMessage,
+        image,
         onChange,
         Register,
-        formValid
+        formValid,
+        SelecImage
     } = usesViewModelRegister();
 
     useEffect(()=>{
@@ -38,10 +40,19 @@ export const RegisterScreen = () => {
                 />
 
                 <View style={RegisterStyles.logoContainer}>
-                    <Image 
-                        source={require("../../imgs/profile.png")}
-                        style={RegisterStyles.logoImage}
-                    />
+                    <TouchableOpacity onPress={() => SelecImage()}>
+                        {
+                            image == ''
+                            ?<Image 
+                                source={require("../../imgs/profile.png")}
+                                style={RegisterStyles.logoImage}
+                                />
+                            :<Image 
+                                source={{uri: image}}
+                                style={RegisterStyles.logoImage}
+                            />
+                        }
+                    </TouchableOpacity>
                     <Text style={RegisterStyles.logotext}>Seleciona una imagen</Text>
                 </View>
 
