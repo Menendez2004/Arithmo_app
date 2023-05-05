@@ -2,7 +2,7 @@ import React from 'react'
 import { Text, View, Image, TextInput, TouchableOpacity } from 'react-native';
 
 
-export const EditiProfile = () => {
+export const SettingsScreen = () => {
   return (
     <View>
         <Text>
