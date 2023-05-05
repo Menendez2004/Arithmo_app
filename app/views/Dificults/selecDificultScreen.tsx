@@ -6,7 +6,7 @@ import { RootStackParamList } from '../../../App';
 import DificultStyle from '../../styles/DIficultStyle';
 
 
-export const selecDificultScreen = () => {
+export const SelecDificultScreen = () => {
     const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
 
     return (

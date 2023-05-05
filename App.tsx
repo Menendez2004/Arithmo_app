@@ -3,7 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { HomeScreen } from './app/views/Home/HomeScreen';
 import { RegisterScreen } from './app/views/Register/RegisterScreen';
-import { selecDificultScreen } from './app/views/Dificults/selecDificultScreen';
+import { SelecDificultScreen } from './app/views/Dificults/selecDificultScreen';
 import { FacilScreen } from './app/views/Dificults/FacilScreen';
 import { DificilScreen } from './app/views/Dificults/DificilScreen';
 import { MediumScreen } from './app/views/Dificults/MediumScreen';
@@ -18,7 +18,7 @@ export type RootStackParamList ={
   RegisterScreen: undefined,
   InfoProfileScreen: undefined,
 
-  selecDificultScreen: undefined,
+  SelecDificultScreen: undefined,
   FacilScreen: undefined,
   DificilScreen: undefined,
   MediumScreen: undefined,
@@ -52,13 +52,13 @@ const App = () =>{
           component={InfoProfileScreen}
         />
         <Stack.Screen 
-        name="selecDificultScreen" 
-        component={selecDificultScreen} 
+        name="SelecDificultScreen" 
+        component={SelecDificultScreen} 
         options={{
           headerShown: true,
           title: "DificultScreen"
         }}/>
-        {/* <Stack.Screen 
+        <Stack.Screen 
         name="FacilScreen" 
         component={FacilScreen} 
         options={{
@@ -92,15 +92,15 @@ const App = () =>{
         options={{
           headerShown: true,
           title: "Homepage"
-        }}/> */}
+        }}/>
 
-        {/* <Stack.Screen 
+        <Stack.Screen 
         name='GameScreen' 
         component={GameScreen} 
         options={{
           headerShown: true,
           title: "GameScreen"
-        }}/> */}
+        }}/>
       </Stack.Navigator>
     </NavigationContainer>
   )

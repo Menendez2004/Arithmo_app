@@ -1,10 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState} from "react";
 import {Text,View,Image,TextInput,ToastAndroid,TouchableOpacity, ScrollView, StyleSheet} from "react-native";
 import RegisterStyles from "../../styles/RegisterStyle";
 import { RoundedBtm } from "../../RoundedBtm";
 import { RestructuringImput } from "../../RestructuringImput";
 import { RootStackParamList } from "../../../App";
 import usesViewModelRegister from "./ServiceRegister";
+import { ModalPickImage } from "../../src/components/modalPickImage";
 
 export const RegisterScreen = () => {
     const {
@@ -18,8 +19,11 @@ export const RegisterScreen = () => {
         onChange,
         Register,
         formValid,
-        SelecImage
+        SelecImage,
+        TakePicture
     } = usesViewModelRegister();
+
+    const [modalVisible, setModalVisible] = useState(false);
 
     useEffect(()=>{
         if(errorMessage != ''){
@@ -40,7 +44,7 @@ export const RegisterScreen = () => {
                 />
 
                 <View style={RegisterStyles.logoContainer}>
-                    <TouchableOpacity onPress={() => SelecImage()}>
+                    <TouchableOpacity onPress={() => setModalVisible(true)}>
                         {
                             image == ''
                             ?<Image 
@@ -119,7 +123,12 @@ export const RegisterScreen = () => {
                 />
 
             </View>
-
+            {/* <ModalPickImage
+            openGalery={ TakePicture }
+            openCamera={ TakePicture }
+            modalUseState={ modalVisible }
+            setModalUseState={ setModalVisible }
+            /> */}
         </View>
     );
 };

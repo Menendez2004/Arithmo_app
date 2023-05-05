@@ -26,15 +26,35 @@ const RegisterViewModel = () => {
       aspect: [4, 3],
       quality: 1,
     });
-    
-    if ( !result.canceled ){
+
+    if (!result.canceled) {
       onChange('image', result.assets[0].uri);
       setUpload(result.assets[0]);
-      
+
     }
-  }
+  };
+  //end selecImage
 
 
+  //Start TakePicture
+  const TakePicture = async () => {
+    // No permissions request is necessary for launching the image library
+    let result = await ImagePicker.launchCameraAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.All,
+      allowsEditing: true,
+      aspect: [4, 3],
+      quality: 1,
+    });
+
+    if (!result.canceled) {
+      onChange('image', result.assets[0].uri);
+      setUpload(result.assets[0]);
+
+    }
+  };
+  //end TakePicture
+
+  //REGISTRO DEL USUARIO
   const onChange = (property: string, value: any) => {
     setValues({ ...values, [property]: value });
   };
@@ -44,25 +64,27 @@ const RegisterViewModel = () => {
       const response = await RegisterAuthUseCase(values);
       console.log('RESULT: ' + JSON.stringify(response));
     }
-
   };
+  //end Register
 
+  //validación del email
   const isValidEmail = (email: string): boolean => {
     let validEmail = false;
     email = email.trim().toLowerCase();
-        let pattern = /^[\w-']+(\.[\w-']+)*@([a-zA-Z0-9]+[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*?\.[a-zA-Z]{2,6}|(\d{1,3}\.){3}\d{1,3})(:\d{4})?$/;
-        validEmail = pattern.test(email);
-        //console.log(pattern.test(email))
- 
-    return validEmail;
-}
+    let pattern = /^[\w-']+(\.[\w-']+)*@([a-zA-Z0-9]+[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*?\.[a-zA-Z]{2,6}|(\d{1,3}\.){3}\d{1,3})(:\d{4})?$/;
+    validEmail = pattern.test(email);
+    //console.log(pattern.test(email))
 
+    return validEmail;
+  };
+
+  //VALIDACIÓN DEL FOMRULARIO
   const formValid = (): boolean => {
 
     if (!isValidEmail(values.email)) {
       setErrorMessage('El email no es valido');
       return false;
-  }
+    }
 
     if (values.name === '') {
       setErrorMessage('El campo: Nombre no puede estar vacio');
@@ -73,7 +95,7 @@ const RegisterViewModel = () => {
       return false;
     }
     if (values.email === '') {
-      setErrorMessage('Campo vacio : Email no puede estar vacio ' );
+      setErrorMessage('Campo vacio : Email no puede estar vacio ');
       return false;
     }
     if (values.password === '') {
@@ -81,7 +103,7 @@ const RegisterViewModel = () => {
       return false;
     }
     if (values.confirmPassword === '') {
-      setErrorMessage('Campo vacio : Confirmar contraseña' );
+      setErrorMessage('Campo vacio : Confirmar contraseña');
       return false;
     }
     if (values.password != values.confirmPassword) {
@@ -89,12 +111,12 @@ const RegisterViewModel = () => {
       return false;
     }
     return true;
-    
+
   }
 
-  
 
-  
+
+
 
   return {
     ...values,
@@ -103,6 +125,7 @@ const RegisterViewModel = () => {
     formValid,
     errorMessage,
     SelecImage,
+    TakePicture,
     isValidEmail
   };
 };
