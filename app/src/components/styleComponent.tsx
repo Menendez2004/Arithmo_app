@@ -24,7 +24,7 @@ const styleComponent = StyleSheet.create({
     },
     button: {
         borderRadius: 20,
-        padding: 10,
+        padding: 15,
         elevation: 2,
     },
     buttonOpen: {

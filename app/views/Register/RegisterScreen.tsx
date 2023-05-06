@@ -1,5 +1,5 @@
-import React, { useEffect, useState} from "react";
-import {Text,View,Image,TextInput,ToastAndroid,TouchableOpacity, ScrollView, StyleSheet} from "react-native";
+import React, { useEffect, useState } from "react";
+import { Text, View, Image, TextInput, ToastAndroid, TouchableOpacity, ScrollView, StyleSheet } from "react-native";
 import RegisterStyles from "../../styles/RegisterStyle";
 import { RoundedBtm } from "../../RoundedBtm";
 import { RestructuringImput } from "../../RestructuringImput";
@@ -25,12 +25,12 @@ export const RegisterScreen = () => {
 
     const [modalVisible, setModalVisible] = useState(false);
 
-    useEffect(()=>{
-        if(errorMessage != ''){
+    useEffect(() => {
+        if (errorMessage != '') {
             ToastAndroid.show(errorMessage, ToastAndroid.LONG);
         }
     }, [errorMessage]);
-    
+
     return (
         <View style={RegisterStyles.container}>
             {/*vsita del logo */}
@@ -47,74 +47,74 @@ export const RegisterScreen = () => {
                     <TouchableOpacity onPress={() => setModalVisible(true)}>
                         {
                             image == ''
-                            ?<Image 
-                                source={require("../../imgs/profile.png")}
-                                style={RegisterStyles.logoImage}
+                                ? <Image
+                                    source={require("../../imgs/profile.png")}
+                                    style={RegisterStyles.logoImage}
                                 />
-                            :<Image 
-                                source={{uri: image}}
-                                style={RegisterStyles.logoImage}
-                            />
+                                : <Image
+                                    source={{ uri: image }}
+                                    style={RegisterStyles.logoImage}
+                                />
                         }
                     </TouchableOpacity>
                     <Text style={RegisterStyles.logotext}>Seleciona una imagen</Text>
                 </View>
 
-                    <RestructuringImput 
-                        
-                        placeholder="Nombres"
-                        KeyboardType="default"
-                        image={require("../../imgs/Name.png")}
-                        property="name"
-                        onChangeText={onChange}
-                        value={name}
-                    />
+                <RestructuringImput
 
-                    <RestructuringImput 
-                        placeholder="Apellidos"
-                        KeyboardType="default"
-                        image={require("../../imgs/lastname.png")}
-                        property="lastName"
-                        onChangeText={onChange}
-                        value={lastName}
-                    />
+                    placeholder="Nombres"
+                    KeyboardType="default"
+                    image={require("../../imgs/Name.png")}
+                    property="name"
+                    onChangeText={onChange}
+                    value={name}
+                />
 
-                    <RestructuringImput
-                        placeholder="Email"
-                        KeyboardType="default"
-                        image={require("../../imgs/email.png")}
-                        property="email"
-                        onChangeText={onChange}
-                        value={email}
-                    />
+                <RestructuringImput
+                    placeholder="Apellidos"
+                    KeyboardType="default"
+                    image={require("../../imgs/lastname.png")}
+                    property="lastName"
+                    onChangeText={onChange}
+                    value={lastName}
+                />
 
-                    <RestructuringImput
-                        placeholder="Contraseña"
-                        KeyboardType="default"
-                        image={require("../../imgs/Password.png")}
-                        property="password"
-                        onChangeText={onChange}
-                        value={password}
-                        secureTextEntry={true}
-                    />
+                <RestructuringImput
+                    placeholder="Email"
+                    KeyboardType="default"
+                    image={require("../../imgs/email.png")}
+                    property="email"
+                    onChangeText={onChange}
+                    value={email}
+                />
 
-                    <RestructuringImput
-                        placeholder="Confirmar Contraseña"
-                        KeyboardType="default"
-                        image={require("../../imgs/confirmpass.png")}
-                        property="confirmPassword"
-                        onChangeText={onChange}
-                        value={confirmPassword}
-                        secureTextEntry={true}
-                    />
+                <RestructuringImput
+                    placeholder="Contraseña"
+                    KeyboardType="default"
+                    image={require("../../imgs/Password.png")}
+                    property="password"
+                    onChangeText={onChange}
+                    value={password}
+                    secureTextEntry={true}
+                />
 
-                    <View>
-                        <RoundedBtm text="CONFIRMAR" onPress={() => {
-                            if ( formValid()){
-                                Register();
-                            }
-                        }}/>
-                    </View>
+                <RestructuringImput
+                    placeholder="Confirmar Contraseña"
+                    KeyboardType="default"
+                    image={require("../../imgs/confirmpass.png")}
+                    property="confirmPassword"
+                    onChangeText={onChange}
+                    value={confirmPassword}
+                    secureTextEntry={true}
+                />
+
+                <View>
+                    <RoundedBtm text="CONFIRMAR" onPress={() => {
+                        if (formValid()) {
+                            Register();
+                        }
+                    }} />
+                </View>
 
 
                 <Image
@@ -122,13 +122,16 @@ export const RegisterScreen = () => {
                     source={require("../../imgs/burbuf.png")}
                 />
 
+                <ModalPickImage
+                
+                    openGalery={SelecImage}
+                    openCamera={TakePicture}
+                    modalUseState={modalVisible}
+                    setModalUseState={setModalVisible}
+                
+                />
             </View>
-            {/* <ModalPickImage
-            openGalery={ TakePicture }
-            openCamera={ TakePicture }
-            modalUseState={ modalVisible }
-            setModalUseState={ setModalVisible }
-            /> */}
+
         </View>
     );
 };
