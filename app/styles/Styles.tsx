@@ -1,10 +1,12 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, StatusBar } from "react-native";
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: 'white',
-        flexDirection: "row"
+        flexDirection: "row",
+        paddingTop: StatusBar.currentHeight,
+
     },
     form: {
         width: '100%',
@@ -40,7 +42,7 @@ const styles = StyleSheet.create({
     },
     imputForm: {
         flexDirection: "row",
-        marginTop: 30
+        marginTop: 20
 
     },
     formIcon: {

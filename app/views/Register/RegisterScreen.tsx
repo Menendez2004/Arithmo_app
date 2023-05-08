@@ -1,11 +1,13 @@
+//Tools from react native
 import React, { useEffect, useState } from "react";
-import { Text, View, Image, TextInput, ToastAndroid, TouchableOpacity, ScrollView, StyleSheet } from "react-native";
-import RegisterStyles from "../../styles/RegisterStyle";
+import { Text, View, Image, ToastAndroid, TouchableOpacity } from "react-native";
+//Components
 import { RoundedBtm } from "../../RoundedBtm";
 import { RestructuringImput } from "../../RestructuringImput";
-import { RootStackParamList } from "../../../App";
-import usesViewModelRegister from "./ServiceRegister";
 import { ModalPickImage } from "../../src/components/modalPickImage";
+//Screens
+import RegisterStyles from "../../styles/RegisterStyle";
+import usesViewModelRegister from "./ServiceRegister";
 
 export const RegisterScreen = () => {
     const {

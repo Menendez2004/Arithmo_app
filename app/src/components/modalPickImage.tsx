@@ -2,16 +2,17 @@ import React, { useState } from 'react';
 import { Alert, Modal, Text, Pressable, View } from 'react-native';
 import styleComponent from './styleComponent';
 import { RoundedBtm } from '../../RoundedBtm';
+import styles from '../../styles/Styles';
 
 interface Props {
     openGalery: () => void,
     openCamera: () => void;
-    modalUseState: boolean;
+    modalUseState: boolean,
     setModalUseState: React.Dispatch<React.SetStateAction<boolean>>;
 
 }
 
-export const ModalPickImage = ({openGalery, openCamera, setModalUseState, modalUseState}: Props) => {
+export const ModalPickImage = ({ openGalery, openCamera, setModalUseState, modalUseState }: Props) => {
     return (
         <View style={styleComponent.centeredView}>
             <Modal
@@ -24,17 +25,27 @@ export const ModalPickImage = ({openGalery, openCamera, setModalUseState, modalU
                 }}>
                 <View style={styleComponent.centeredView}>
                     <View style={styleComponent.modalView}>
+                        <Text>Selecciona una opción</Text>
+                        <View style={styleComponent.buttonContainer}>
+                            <RoundedBtm
+                                onPress={() => {
+                                    openGalery()
+                                    setModalUseState(false);
+                                }}
+                                text='Galeria'
+                            />
+                        </View>
+
+                        <View style={styleComponent.buttonContainer}>
                         <RoundedBtm
-                            onPress={() =>  {
-                                openGalery()
-                                setModalUseState(true);
-                            }}
-                            text='Galeria'
-                        />
-                        <RoundedBtm
-                        onPress={ () => openCamera()}
-                        text='Camara'
-                        />
+                                onPress={() => {
+                                    openCamera(),
+                                    setModalUseState(false);
+                                }}
+                                text='Camara'
+                            />
+                        </View>
+
                     </View>
                 </View>
             </Modal>

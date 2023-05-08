@@ -5,13 +5,14 @@ const styleComponent = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        marginTop: 22,
+        
     },
     modalView: {
-        margin: 20,
+        width: 210,
+        height: 210,
+        margin: 2,
         backgroundColor: 'white',
         borderRadius: 20,
-        padding: 35,
         alignItems: 'center',
         shadowColor: '#000',
         shadowOffset: {
@@ -42,6 +43,10 @@ const styleComponent = StyleSheet.create({
         marginBottom: 15,
         textAlign: 'center',
     },
+    buttonContainer:{
+        width: '90%',
+        marginBottom: -10
+    }
 });
 
 export default styleComponent;
