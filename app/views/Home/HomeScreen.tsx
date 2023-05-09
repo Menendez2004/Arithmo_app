@@ -23,7 +23,7 @@ export const HomeScreen = ({navigation, route}:Props) => {
     useEffect(() => {
         
         if(user?.session_token !== null && user?.session_token !== undefined) {
-            navigation.replace('HomepageScream');
+            navigation.navigate('SelecDificultScreen');
         }
     }, [user])
     

@@ -44,7 +44,7 @@ module.exports = {
                     lastName: myUser.lastName,
                     password: myUser.password,
                     image: myUser.image,
-                    session_token: `JWT ${token}`
+                    sessionStorage: token
                 };
 
                 return res.status(201).json({
@@ -92,11 +92,11 @@ module.exports = {
         async  photoUpload(req, res) {
         const user = JSON.parse(req.body.user); //Datos del usuario
 
-        const files = req.files;
+        const files = req.body.files;
 
         if(files.lenght > 0){
             const path = `image_${Date.now()}`;
-            if (url != undefined && url != null) {
+            if (url != null && url != undefined) {
                 user.image = url;
             }
         }
@@ -113,7 +113,7 @@ module.exports = {
 
             user.id = `${data}`;
             const token = jwt.sign({ id: user.id, email: user.email }, keys.secretOrKey, {});
-            user.session_token = `JWT ${token}`;
+            user.session_token = token;
 
             return res.status(201).json({
                 success: true,
