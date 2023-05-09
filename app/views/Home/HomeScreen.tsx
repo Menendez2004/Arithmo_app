@@ -73,7 +73,7 @@ export const HomeScreen = ({navigation, route}:Props) => {
                 />
 
                 <View >
-                    <RoundedBtm text='ENTRAR' onPress={() => login()} />
+                    <RoundedBtm text='ENTRAR' onPress={() => navigation.replace('SelecDificultScreen')} />
                 </View>
 
                 <View style={styles.formRegister}>

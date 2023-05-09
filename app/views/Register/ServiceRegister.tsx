@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { RegisterAuthUseCase } from "../../src/Domain/useCase/auth/RegisterAuth";
 import * as ImagePicker from 'expo-image-picker';
-import {uploadphotoAuthUseCase} from '../../src/Domain/useCase/auth/uploadPhotoAuth'
 
 
 
@@ -17,7 +16,7 @@ const RegisterViewModel = () => {
     confirmPassword: "",
   });
 
-  const [upload, setUpload] = useState<ImagePicker.ImagePickerAsset>();//es lo mismo que ImageInfo, ya que ya esta deprecado
+  const [file, setFile] = useState<ImagePicker.ImagePickerAsset>()
 
   const SelecImage = async () => {
     // No permissions request is necessary for launching the image library
@@ -30,7 +29,7 @@ const RegisterViewModel = () => {
 
     if (!result.canceled) {
       onChange('image', result.assets[0].uri);
-      setUpload(result.assets[0]);
+      setFile(result.assets[0]);
 
     }
   };
@@ -49,7 +48,7 @@ const RegisterViewModel = () => {
 
     if (!result.canceled) {
       onChange('image', result.assets[0].uri);
-      setUpload(result.assets[0]);
+      setFile(result.assets[0]);
 
     }
   };
@@ -62,8 +61,7 @@ const RegisterViewModel = () => {
 
   const Register = async () => {
     if (formValid()) {
-      // const response = await RegisterAuthUseCase(values);
-      const response = await uploadphotoAuthUseCase(values, upload!);
+      const response = await RegisterAuthUseCase(values);
       console.log('RESULT: ' + JSON.stringify(response));
     }
   };
@@ -129,9 +127,9 @@ const RegisterViewModel = () => {
     onChange,
     Register,
     formValid,
+    TakePicture,
     errorMessage,
     SelecImage,
-    TakePicture,
     isValidEmail
   };
 };
