@@ -1,10 +1,10 @@
 import { AxiosError } from "axios";
 import { AuthRepository } from "../../Domain/repository/AuthRepository";
 import { User } from "../../Domain/entities/User";
-import { ArithmoApi, ApiForImage } from "../source/remote/api/ArithmoApi";
+import { ArithmoApi } from "../source/remote/api/ArithmoApi";
 import { ResponseAPI } from "../source/remote/api/model/ResponseApi";
-import * as mime from "mime";
-import * as ImagePicker from 'expo-image-picker'
+// import * as mime from "mime";
+// import * as ImagePicker from 'expo-image-picker'
 
 export class AuthRepositoryImpl implements AuthRepository {
     

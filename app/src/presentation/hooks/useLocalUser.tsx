@@ -14,7 +14,7 @@ export const useLocalUser = () => {
     const getUserSession =async () => {
         const user = await GetUserCase();
         setuser(user)
-        // console.log('Usuario en session: ' + JSON.stringify(user));
+        console.log('Usuario en session: ' + JSON.stringify(user));
     }
     return { 
         user,

@@ -39,7 +39,7 @@ const upload = multer({
 
 userRoutes(app, upload);
 
-server.listen(3000, '192.168.1.8' || 'localhost', function () {
+server.listen(3000, '192.168.1.4' || 'localhost', function () {
     console.log('Node aplication ' + process.pid + ' iniciada');
 });
 

@@ -7,26 +7,25 @@ import { RoundedBtm } from '../../RoundedBtm';
 import {RestructuringImput} from '../../RestructuringImput'
 import { RootStackParamList } from '../../../App';
 
+
 interface Props extends StackScreenProps<RootStackParamList, 'HomeScreen'>{};
 
 export const HomeScreen = ({navigation, route}:Props) => {
     const { email, password, onChange, login, errorMessage, user} = useViewModelHome();
 
-        
     useEffect(() => {
         if (errorMessage !== '') {
             ToastAndroid.show(errorMessage, ToastAndroid.LONG);
         }
     }, [errorMessage])
-    
-    
+
+
     useEffect(() => {
-        
-        if(user?.session_token !== null && user?.session_token !== undefined) {
-            navigation.navigate('SelecDificultScreen');
+
+        if(user?.session_token != null && user?.session_token != undefined) {
+            navigation.navigate('HomepageScream');
         }
     }, [user])
-    
     return (
 //Etiqueta view funciona como uina columna
         //vista main, contenedor de todo
@@ -73,7 +72,7 @@ export const HomeScreen = ({navigation, route}:Props) => {
                 />
 
                 <View >
-                    <RoundedBtm text='ENTRAR' onPress={() => navigation.replace('SelecDificultScreen')} />
+                    <RoundedBtm text='ENTRAR' onPress={() => login()} />
                 </View>
 
                 <View style={styles.formRegister}>
@@ -87,6 +86,7 @@ export const HomeScreen = ({navigation, route}:Props) => {
                     style={styles.rightBurble}
                     source={require('../../imgs/burbuf.png')} />
             </View>
+
 
         </View >  );
 }

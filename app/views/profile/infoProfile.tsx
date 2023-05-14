@@ -7,6 +7,7 @@ import ProfileStyle from '../../styles/ProfileStyle';
 import { Ionicons } from '@expo/vector-icons';
 
 
+
 interface Props extends StackScreenProps<RootStackParamList, 'InfoProfileScreen'>{};
 
 export const InfoProfileScreen = ({navigation, route}: Props) => {
@@ -26,8 +27,7 @@ export const InfoProfileScreen = ({navigation, route}: Props) => {
           <Text style={ProfileStyle.container_text} >Steve Sánchez</Text>
         </View>
 
-          <Text style={{fontWeight: 'bold', fontSize: 20, color:'#0A4D68', marginLeft: 30, marginTop: 15
-}} >
+          <Text style={{fontWeight: 'bold', fontSize: 20, color:'#0A4D68', marginLeft: 30, marginTop: 15}} >
             Información del usuario
           </Text>
 
@@ -133,6 +133,7 @@ export const InfoProfileScreen = ({navigation, route}: Props) => {
           }}
           title='Editar Perfil'/>   
             </View>
+            
             
     </View>
   )

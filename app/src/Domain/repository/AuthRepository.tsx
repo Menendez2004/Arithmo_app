@@ -1,6 +1,6 @@
 import { ResponseAPI } from "../../data/source/remote/api/model/ResponseApi";
 import { User } from "../entities/User"
-import * as ImagePicker from 'expo-image-picker';
+// import * as ImagePicker from 'expo-image-picker';
 
 
 export interface AuthRepository {

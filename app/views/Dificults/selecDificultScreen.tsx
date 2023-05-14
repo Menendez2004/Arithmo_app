@@ -14,10 +14,6 @@ export const SelecDificultScreen = () => {
 
             <View style={DificultStyle.container_user}>
 
-                <View style={DificultStyle.row}>
-                    <Image style={DificultStyle.image1} source={require('../../imgs/usuario.png')} />
-                    <Text>Steve S.</Text>
-                </View>
 
                 <Image style={DificultStyle.image2} source={require('../../imgs/resta.png')} />
             </View>
