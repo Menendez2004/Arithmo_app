@@ -7,4 +7,7 @@ export interface AuthRepository {
 
     login(email: string, password: string): Promise<ResponseAPI>;
     register(user: User): Promise<ResponseAPI>;
+    registerWithImage(user: User, file: ImagePicker.ImagePickerAsset): Promise<ResponseAPI>;
+
+
 };

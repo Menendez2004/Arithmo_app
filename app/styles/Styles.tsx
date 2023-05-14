@@ -20,8 +20,8 @@ const styles = StyleSheet.create({
     },
     formText: {
         fontWeight: 'bold',
-        marginTop: 15,
-        fontSize: 20,
+        bottom: 10,
+        fontSize: 25,
     },
     burbu: {
         marginLeft: 225,
@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
         height: 100,
         margin: 55,
         marginLeft: -75,
-        marginTop: 120
+        marginTop: 60
     },
     texImputForm: {
         flex: 1,
@@ -47,18 +47,31 @@ const styles = StyleSheet.create({
     },
     formIcon: {
         width: 25,
-        height: 20,
-        marginTop: 5
+        height: 18,
+        marginLeft: -1,
+        marginTop: 5,
+        alignContent: "center",
+        alignItems: "center"
+
     },
     formIcon1: {
         width: 20,
         height: 25,
-        marginTop: 5
+        marginTop: 5,
+        alignContent: "center",
+        alignItems: "center"
     },
     formRegister: {
         flexDirection: "row",
         justifyContent: "center",
-        marginTop: 25,
+        marginTop: 40,
+        marginLeft: 45
+
+    },
+    formRegisterText: {
+        fontSize: 15.5,
+        marginRight: 5,
+        fontWeight: "bold"
 
     },
     formRegisterTex: {
@@ -74,7 +87,7 @@ const styles = StyleSheet.create({
     logoContainer: {
         alignSelf: 'center',
         margin: 48,
-        marginTop:120
+        marginTop: "20%"
     },
     logoImage: {
 

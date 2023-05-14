@@ -1,6 +1,8 @@
 import React, { useState } from "react";
-import { RegisterAuthUseCase } from "../../src/Domain/useCase/auth/RegisterAuth";
 import * as ImagePicker from 'expo-image-picker';
+//auth cases
+import { RegisterWithImageUseCase } from "../../src/Domain/useCase/auth/RegisterWithImageAuth";
+import { RegisterAuthUseCase } from "../../src/Domain/useCase/auth/RegisterAuth";
 
 
 
@@ -61,7 +63,8 @@ const RegisterViewModel = () => {
 
   const Register = async () => {
     if (formValid()) {
-      const response = await RegisterAuthUseCase(values);
+      // const response = await RegisterAuthUseCase(values);
+      const response = await RegisterWithImageUseCase(values, file!);
       console.log('RESULT: ' + JSON.stringify(response));
     }
   };

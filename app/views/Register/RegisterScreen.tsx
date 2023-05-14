@@ -4,6 +4,8 @@ import { Text, View, Image, ToastAndroid, TouchableOpacity } from "react-native"
 //Components
 import { RoundedBtm } from "../../RoundedBtm";
 import { RestructuringImput } from "../../RestructuringImput";
+import { RestructuringImput1 } from '../../RestructuringImput1';
+
 import { ModalPickImage } from "../../src/components/modalPickImage";
 //Screens
 import RegisterStyles from "../../styles/RegisterStyle";
@@ -62,7 +64,7 @@ export const RegisterScreen = () => {
                     <Text style={RegisterStyles.logotext}>Seleciona una imagen</Text>
                 </View>
 
-                <RestructuringImput
+                <RestructuringImput1
 
                     placeholder="Nombres"
                     KeyboardType="default"
@@ -72,7 +74,7 @@ export const RegisterScreen = () => {
                     value={name}
                 />
 
-                <RestructuringImput
+                <RestructuringImput1
                     placeholder="Apellidos"
                     KeyboardType="default"
                     image={require("../../imgs/lastname.png")}
@@ -90,7 +92,7 @@ export const RegisterScreen = () => {
                     value={email}
                 />
 
-                <RestructuringImput
+                <RestructuringImput1
                     placeholder="Contraseña"
                     KeyboardType="default"
                     image={require("../../imgs/Password.png")}
@@ -100,7 +102,7 @@ export const RegisterScreen = () => {
                     secureTextEntry={true}
                 />
 
-                <RestructuringImput
+                <RestructuringImput1
                     placeholder="Confirmar Contraseña"
                     KeyboardType="default"
                     image={require("../../imgs/confirmpass.png")}

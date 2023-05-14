@@ -7,11 +7,11 @@ const uuid = uuidv4();
 
 
 const storage = new Storage({
-    projectId: "arithmo-photos-mysql",
+    projectId: "arithmo-photos",
     keyFilename: './serviceAccountKey.json'
 });
 
-const bucket = storage.bucket("gs://arithmo-photos-mysql.appspot.com/");
+const bucket = storage.bucket("gs://arithmo-photos.appspot.com/");
 
 /**
  * Subir el archivo a Firebase Storage

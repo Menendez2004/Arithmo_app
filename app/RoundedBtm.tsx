@@ -18,4 +18,15 @@ export const RoundedBtm = ( { text, onPress }: Props ) => {
   )
 }
 
+export const RoundedBtm2 = ({ text, onPress}: Props) =>{
+  return (
+    <TouchableOpacity
+    style={RoundeStyleBtm.RoundedButton2}
+    onPress={() => onPress()}
+    >
+        <Text style={RoundeStyleBtm.textButton2}>{text}</Text>
+    </TouchableOpacity>
+  )
+}
+
 

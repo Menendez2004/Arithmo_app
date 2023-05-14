@@ -105,7 +105,7 @@ User.create = async (user, result) =>{
                 console.log('ERROR:', err);
             }
             else{
-                console.log('USUARUIO:: ', user);
+                console.log('USUARUIO: ', user);
                 result(null, user);
             }
         }
