@@ -79,7 +79,6 @@ module.exports = {
 
         User.create(user, (err, data) => {
 
-
             if (err) {
                 return res.status(501).json({
                     success: false,

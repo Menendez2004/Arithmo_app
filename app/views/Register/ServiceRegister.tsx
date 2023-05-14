@@ -113,6 +113,10 @@ const RegisterViewModel = () => {
       setErrorMessage('Las contraseñas no coinciden, verifica que hayas escrito correctamenete tu contraseña nuevamente');
       return false;
     }
+    if (values.image === '') {
+      setErrorMessage('Campo vacio : Foto no puede estar vacio');
+      return false;
+    }
     return true;
 
   }
