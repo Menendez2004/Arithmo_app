@@ -4,7 +4,7 @@ import { SaveUserCase } from '../../src/Domain/useCase/localUser/localSaveUser';
 // import { GetUserCase } from "../../src/Domain/useCase/localUser/localGetUser";
 import { useLocalUser } from '../../src/presentation/hooks/useLocalUser';
 
-const HomeViewModel = () => {
+const  ServiceHome = () => {
     const [errorMessage, seterrorMessage] = useState('')
     const [values, setValues] = useState({
         email: "",
@@ -54,4 +54,4 @@ const HomeViewModel = () => {
     }
 }
 
-export default HomeViewModel;
+export default ServiceHome;

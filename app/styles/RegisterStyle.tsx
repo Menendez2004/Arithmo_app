@@ -5,7 +5,7 @@ const RegisterStyles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: 'white',
-        flexDirection: "row"
+        flexDirection: "row",
     },
     form: {
         width: '100%',
@@ -16,12 +16,15 @@ const RegisterStyles = StyleSheet.create({
         borderTopLeftRadius: 30,
         borderTopRightRadius: 30,
         padding: 33.5,
+        
 
     },
     burbu: {
         marginLeft: 238,
         width: 160,
         height: 95,
+        marginTop: 25
+
     },
     texImputForm: {
         flex: 1,
@@ -51,7 +54,7 @@ const RegisterStyles = StyleSheet.create({
     formRegister: {
         flexDirection: "row",
         justifyContent: "center",
-        marginTop: 30,//¿?
+        // marginTop: 30,//¿?
 
     },
     formRegisterTex: {
@@ -69,6 +72,7 @@ const RegisterStyles = StyleSheet.create({
         alignItems: "center",
         alignSelf: 'center',
         margin: -16.7,
+        bottom: 13,
     },
     logoImage: {
         width: 120,
@@ -83,7 +87,7 @@ const RegisterStyles = StyleSheet.create({
         textAlign: 'center',
         alignContent: "center",
         fontSize: 15,
-        marginTop: 14,
+        marginTop: 18,
         fontWeight: 'bold'
     },
     rightBurble: {
@@ -92,6 +96,13 @@ const RegisterStyles = StyleSheet.create({
         margin: 15,
         marginLeft: -70
     },
+    loading:{
+        position: "absolute",
+        botton: 0,
+        top: 0,
+        right: 0,
+        left: 0
+    }
 
 });
 

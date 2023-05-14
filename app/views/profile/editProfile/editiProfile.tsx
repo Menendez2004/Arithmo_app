@@ -1,10 +1,58 @@
-import React from 'react'
-import { Text, View, Image, TextInput, TouchableOpacity } from 'react-native';
-import EditiStyle from '../../../styles/EditStyle';
+import React, { useEffect, useState } from "react";
+import { ModalPickImage } from '../../../src/components/modalPickImage';
+import { StackScreenProps } from '@react-navigation/stack';
+import { RootStackParamList } from '../../../../App';
+import { Text, View, Image, ToastAndroid, TouchableOpacity } from "react-native";
 import { Ionicons } from '@expo/vector-icons';
+import { EvilIcons } from '@expo/vector-icons'; 
+
+import EditiStyle from '../../../styles/EditStyle';
+import { StructureEdit } from "./Structure";
+import { RestructuringImput1 } from '../../../RestructuringImput1'; 
+import ServiceEditProfile from './serviceEditProfile';
+import editProfileStyle from "../../../styles/editProfileStyle";
+
+interface Props extends StackScreenProps<RootStackParamList, 'PorfileUpdateScreen'> { };
+
+export const PorfileUpdateScreen = ({ navigation }: Props) => {
+  const {
+    name,
+    email,
+    lastName,
+    password,
+    confirmPassword,
+    loanding,
+    errorMessage,
+    user,
+    image,
+    onChange,
+    Register,
+    formValid,
+    SelecImage,
+    TakePicture,
+  } = ServiceEditProfile();
+
+  const [modalVisible, setModalVisible] = useState(false);
+
+  useEffect(() => {
+    if (errorMessage != '') {
+      ToastAndroid.show(errorMessage, ToastAndroid.LONG);
+    }
+  }, [errorMessage]);
+
+  useEffect(() => {
+    onChange('name', user?.name)
+    onChange('lastName', user?.name)
+    onChange('email', user?.email)
+  }, [user])
 
 
-export const EditiProfile = () => {
+  useEffect(() => {
+
+    if (user?.session_token != null && user?.session_token != undefined) {
+      navigation.navigate('PorfileUpdateScreen');
+    }
+  }, [user])
 
   return (
     <View style={EditiStyle.container}>
@@ -13,83 +61,80 @@ export const EditiProfile = () => {
 
         <View style={[EditiStyle.circle, EditiStyle.shadowProp]}>
 
-          <View style={EditiStyle.icon}>
-            <Ionicons name="camera-outline" size={30} color={'#05BFDB'} />
+          <View>
+            <TouchableOpacity onPress={() => setModalVisible(true)}>
+              {
+                image == ''
+                  ? <Image
+                    //@ts-ignore
+                    source={{ uri: user?.image }}
+                    style={EditiStyle.logoImage}
+
+                  />
+                  : <Image
+                    source={{ uri: image }}
+                    style={EditiStyle.logoImage}
+                  />
+              }
+            </TouchableOpacity>
           </View>
 
         </View>
 
         <View style={EditiStyle.container_3}>
 
-          <View style={EditiStyle.container_info}>
 
-            <View>
-              <Text>Nombre</Text>
-            </View>
+          <RestructuringImput1
 
-            <View style={EditiStyle.text1}>
-              <Text >Steve</Text>
-            </View>
+            placeholder="Nombres"
+            KeyboardType="default"
+            image={require("../../../imgs/Name.png")}
+            property="name"
+            onChangeText={onChange}
+            value={name}
+          />
 
+          <RestructuringImput1
+            placeholder="Apellidos"
+            KeyboardType="default"
+            image={require("../../../imgs/lastname.png")}
+            property="lastName"
+            onChangeText={onChange}
+            value={lastName}
+          />
 
+          <View style={EditiStyle.Text} >
+            <Text style= {EditiStyle.area}>Email:</Text>
+          <EvilIcons name="pencil" style={EditiStyle.Icons} />
           </View>
-
-          <View style={EditiStyle.container_info}>
-
-            <View>
-              <Text>Apellido</Text>
-            </View>
-
-            <View style={EditiStyle.text1}>
-              <Text>Sanchez</Text>
-            </View>
-
-          </View>
-
-          <View style={EditiStyle.container_info}>
-
-            <View>
-              <Text>Email</Text>
-            </View>
-
-            <View style={EditiStyle.text1}>
-              <Text>Steve@gmail.com</Text>
-            </View>
-
-          </View>
-
-          <View style={EditiStyle.container_info}>
-
-            <View>
-              <Text>Genero</Text>
-            </View>
-
-            <View style={EditiStyle.text1}>
-              <Text>Masculino</Text>
-            </View>
-
-          </View>
-
-          <View style={EditiStyle.container_info}>
-
-            <View>
-              <Text>Fecha de nacimiento</Text>
-            </View>
-
-            <View style={EditiStyle.text1}>
-              <Text>17-08-2005</Text>
-            </View>
-
-          </View>
+          
+          <StructureEdit
+            placeholder="Email"
+            KeyboardType="default"
+            image={require("../../../imgs/email.png")}
+            property="email"
+            onChangeText={onChange}
+            value={email}
+          />
 
         </View>
+        
 
       </View>
 
       <View style={EditiStyle.button}>
-          <Text style={{color: '#05BFDB', fontWeight:'bold',fontSize: 15}}>Actualizar Perfil</Text>
-        </View>
+        <Text style={{ color: '#05BFDB', fontWeight: 'bold', fontSize: 15 }}>Actualizar Perfil</Text>
+      </View>
+
+      <ModalPickImage
+
+        openGalery={SelecImage}
+        openCamera={TakePicture}
+        modalUseState={modalVisible}
+        setModalUseState={setModalVisible}
+
+      />
 
     </View>
-  )
-}
+  );
+};

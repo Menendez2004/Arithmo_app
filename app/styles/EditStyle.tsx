@@ -14,7 +14,7 @@ const EditiStyle = StyleSheet.create({
         width: '100%',
         height: '70%',
         alignItems: 'center',
-        marginTop:'40%'
+        marginTop:'25%'
         // transform: [{translateY:50}]
     },
 
@@ -33,14 +33,12 @@ const EditiStyle = StyleSheet.create({
         bottom: 0,
         transform: [{translateY: -50}]
     },
-
-    icon:{
-        backgroundColor: '#0A4D68',
-        alignItems: 'center',
-        width: 60,
-        padding: 15,
-        borderRadius: 30,
-        bottom:0,
+    logoImage: {
+        width: 130,
+        height: 130,
+        bottom: 10,
+        borderRadius: 60,
+        marginRight:"7%"
     },
 
     container_3:{
@@ -58,12 +56,6 @@ const EditiStyle = StyleSheet.create({
         
     },
 
-    // line:{
-    //     width: 2,
-    //     height: '80%',
-    //     color: '#707070'
-    // },
-
     text1:{
         flex:1,
         alignItems: 'flex-end',
@@ -78,8 +70,21 @@ const EditiStyle = StyleSheet.create({
         borderRadius: 30,
         marginTop: '10%',
 
-    }
-    
+    },
+    Text:{
+        marginTop: 35,
+        fontSize: 10,
+    },
+    area:{
+        marginLeft:"12%",
+        fontSize: 15,
+        fontWeight: 'bold'
+    },
+    Icons:{
+        fontSize:35,
+        bottom: 34,
+        marginLeft: "78%"
+    }    
 })
 
 export default EditiStyle

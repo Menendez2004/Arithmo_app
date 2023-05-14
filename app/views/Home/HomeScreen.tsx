@@ -5,7 +5,7 @@ import { Text, View, Image, TouchableOpacity, ToastAndroid } from 'react-native'
 
 //components 
 import styles from '../../styles/Styles';
-import useViewModelHome from './ServiceHome'
+import ServiceHome from './ServiceHome'
 import { RoundedBtm } from '../../RoundedBtm';
 import { RoundedBtm2 } from '../../RoundedBtm';
 import { RestructuringImput } from '../../RestructuringImput'
@@ -15,7 +15,7 @@ import { RootStackParamList } from '../../../App';
 interface Props extends StackScreenProps<RootStackParamList, 'HomeScreen'> { };
 
 export const HomeScreen = ({ navigation, route }: Props) => {
-    const { email, password, onChange, login, errorMessage, user } = useViewModelHome();
+    const { email, password, onChange, login, errorMessage, user } = ServiceHome();
 
 
     useEffect(() => {

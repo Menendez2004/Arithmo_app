@@ -12,7 +12,7 @@ import { HomepageScream } from './app/views/index/HomepageScream';
 import { InfoProfileScreen } from './app/views/profile/infoProfile';
 import { GameScreen } from './app/views/game/GameScreen';
 import { SettingsScreen } from './app/views/Settings/SettingsScreen';
-import { EditiProfile } from './app/views/profile/editProfile/editiProfile';
+import { PorfileUpdateScreen } from './app/views/profile/editProfile/editiProfile';
 
 export type RootStackParamList = {
   //principals screens 
@@ -28,7 +28,7 @@ export type RootStackParamList = {
   HomepageScream: undefined,
   GameScreen: undefined,
   SettingsScreen: undefined,
-  EditiProfile: undefined,
+  PorfileUpdateScreen: undefined,
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -48,7 +48,7 @@ const App = () => {
           name="RegisterScreen"
           component={RegisterScreen}
           options={{
-            headerShown: true,
+            // headerShown: true,
             title: "Registrate"
           }} />
         <Stack.Screen
@@ -115,10 +115,10 @@ const App = () => {
           }} />
 
           <Stack.Screen
-          name='EditiProfile'
-          component={EditiProfile}
+          name='PorfileUpdateScreen'
+          component={PorfileUpdateScreen}
           options={{
-            headerShown: false,
+            headerShown: true,
             title: "EditiProfile"
           }} />
       </Stack.Navigator>

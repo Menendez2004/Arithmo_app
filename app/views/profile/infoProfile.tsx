@@ -122,16 +122,16 @@ export const InfoProfileScreen = ({navigation, route}: Props) => {
           <Button
           onPress={() =>{
             removeSession();
-            navigation.navigate('HomeScreen')
+            navigation.replace('HomeScreen')
           }}
           title='Cerrar sesión'/>   
 
           <Button
           onPress={() =>{
-            
-            navigation.navigate('EditiProfile')
+            navigation.navigate('PorfileUpdateScreen')
           }}
           title='Editar Perfil'/>   
+          
             </View>
             
             

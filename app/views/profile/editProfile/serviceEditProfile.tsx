@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import * as ImagePicker from 'expo-image-picker';
 //auth cases
-import { RegisterWithImageUseCase } from "../../src/Domain/useCase/auth/RegisterWithImageAuth";
-import { RegisterAuthUseCase } from "../../src/Domain/useCase/auth/RegisterAuth";
-import { SaveUserCase } from '../../src/Domain/useCase/localUser/localSaveUser';
-import { useLocalUser } from '../../src/presentation/hooks/useLocalUser';
+import { RegisterWithImageUseCase } from "../../../src/Domain/useCase/auth/RegisterWithImageAuth";
+import { RegisterAuthUseCase } from "../../../src/Domain/useCase/auth/RegisterAuth";
+import { SaveUserCase } from '../../../src/Domain/useCase/localUser/localSaveUser';
+import { useLocalUser } from '../../../src/presentation/hooks/useLocalUser';
 
 
 
-const RegisterViewModel = () => {
+const ServiceEditProfile = () => {
 
   const [errorMessage, setErrorMessage] = useState('');
   const [values, setValues] = useState({
@@ -143,12 +143,12 @@ const RegisterViewModel = () => {
     Register,
     formValid,
     TakePicture,
-    errorMessage,
     SelecImage,
+    errorMessage,
     isValidEmail,
+    loanding,
     user,
-    loanding
   };
 };
 
-export default RegisterViewModel;
+export default ServiceEditProfile;

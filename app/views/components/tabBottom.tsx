@@ -8,6 +8,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { InfoProfileScreen } from '../../views/profile/infoProfile';
 import { SelecDificultScreen } from '../Dificults/selecDificultScreen';
 import { SettingsScreen } from '../Settings/SettingsScreen';
+import { EditiProfile } from '../profile/editProfile/editiProfile';
 
 const Tab = createBottomTabNavigator();
   export default function Navbar(){

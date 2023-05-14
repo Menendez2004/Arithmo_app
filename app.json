@@ -19,7 +19,7 @@
       ]
     ],
     "splash": {
-      "image": "./assets/Arithmo.png",
+      "image": "./assets/arithmo_icon.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -34,9 +34,6 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       }
-    },
-    "web": {
-      "favicon": "./assets/favicon.png"
     }
   }
 }

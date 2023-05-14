@@ -5,7 +5,7 @@ import { MyColors } from './theme/Theme'
 const RoundeStyleBtm = StyleSheet.create({
     RoundedButton:{
         width: '100%',
-        height: 50,
+        height: 45,
         backgroundColor: MyColors.primary,
         alignItems: 'center',
         justifyContent: 'center',
@@ -14,8 +14,9 @@ const RoundeStyleBtm = StyleSheet.create({
 
     },
     textButton:{
-        color: MyColors.background,
-        fontWeight: 'bold'
+        color: MyColors.Text,
+        fontSize: 17,
+        fontWeight: "bold"
     },
     RoundedButton2:{
         width: 110,

@@ -1,24 +1,36 @@
 //Tools from react native
 import React, { useEffect, useState } from "react";
-import { Text, View, Image, ToastAndroid, TouchableOpacity } from "react-native";
+import { Text, View, Image, ActivityIndicator, ToastAndroid, TouchableOpacity } from "react-native";
 //Components
-import { RoundedBtm } from "../../RoundedBtm";
+import { StackScreenProps } from '@react-navigation/stack'
+import { RootStackParamList } from '../../../App';
+import { RoundedBtm } from '../../RoundedBtm';
+import { RoundedBtm2 } from '../../RoundedBtm';
 import { RestructuringImput } from "../../RestructuringImput";
 import { RestructuringImput1 } from '../../RestructuringImput1';
-
 import { ModalPickImage } from "../../src/components/modalPickImage";
 //Screens
-import RegisterStyles from "../../styles/RegisterStyle";
 import usesViewModelRegister from "./ServiceRegister";
 
-export const RegisterScreen = () => {
+//styles
+import RegisterStyles from "../../styles/RegisterStyle";
+import styles from '../../styles/Styles';
+import { MyColors } from "../../styles/theme/Theme";
+
+
+interface Props extends StackScreenProps<RootStackParamList, 'RegisterScreen'> { };
+
+
+export const RegisterScreen = ({ navigation, route }: Props) => {
     const {
         name,
         email,
         lastName,
         password,
         confirmPassword,
+        loanding,
         errorMessage,
+        user,
         image,
         onChange,
         Register,
@@ -35,8 +47,16 @@ export const RegisterScreen = () => {
         }
     }, [errorMessage]);
 
+    useEffect(() => {
+
+        if (user?.session_token != null && user?.session_token != undefined) {
+            navigation.replace('HomepageScream');
+        }
+    }, [user])
+
     return (
         <View style={RegisterStyles.container}>
+
             {/*vsita del logo */}
 
             {/*ivista del botón de la password*/}
@@ -119,6 +139,12 @@ export const RegisterScreen = () => {
                         }
                     }} />
                 </View>
+                <View style={styles.formRegister}>
+                    <Text style={styles.formRegisterText}>¿Ya tienes una cuenta?</Text>
+                    <View >
+                        <RoundedBtm2 text='Iniciar sesión' onPress={() => navigation.navigate('HomeScreen')} />
+                    </View>
+                </View>
 
 
                 <Image
@@ -127,13 +153,23 @@ export const RegisterScreen = () => {
                 />
 
                 <ModalPickImage
-                
+
                     openGalery={SelecImage}
                     openCamera={TakePicture}
                     modalUseState={modalVisible}
                     setModalUseState={setModalVisible}
-                
+
                 />
+
+                {
+                    loanding &&
+                    <ActivityIndicator 
+                        style={RegisterStyles.loading} 
+                        size="large" 
+                        color={MyColors.primary} />
+                }
+                
+
             </View>
 
         </View>

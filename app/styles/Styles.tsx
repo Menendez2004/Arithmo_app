@@ -27,6 +27,8 @@ const styles = StyleSheet.create({
         marginLeft: 225,
         width: 172,
         height: 100,
+        margin: 10
+
     },
     rightBurble: {
         width: 172,
