@@ -113,10 +113,6 @@ const RegisterViewModel = () => {
       setErrorMessage('Las contraseñas no coinciden, verifica que hayas escrito correctamenete tu contraseña nuevamente');
       return false;
     }
-    if (values.image === ''){
-      setErrorMessage('Debes seleccionar una imagen');
-      return false;
-    }
     return true;
 
   }

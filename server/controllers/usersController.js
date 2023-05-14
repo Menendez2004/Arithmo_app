@@ -13,8 +13,6 @@ module.exports = {
 
         User.findByEmail(email, async (err, myUser) => {
 
-
-
             if (err) {
                 console.log('ENTRO EN EL ERROR');
                 return res.status(501).json({
@@ -35,16 +33,15 @@ module.exports = {
 
             const isPassValid = await bcrypt.compare(password, myUser.password);
 
-            if (isPassValid) {
 
+            if (isPassValid) {
+                const token = jwt.sign({ id: myUser.id, email: myUser.email }, keys.secretOrKey, {});
                 const data = {
                     id: myUser.id,
                     email: myUser.email,
-                    name: myUser.name,
-                    lastName: myUser.lastName,
                     password: myUser.password,
                     image: myUser.image,
-                    session_token: `jwt ${token}`
+                    session_token: `JWT ${token}`
                 };
 
                 return res.status(201).json({

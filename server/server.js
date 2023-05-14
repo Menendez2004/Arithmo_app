@@ -34,15 +34,12 @@ app.set("port", port);
 const upload = multer({
     Storage: multer.memoryStorage()
 });
-multer({
-    limits: { fieldSize: 25 * 1024 * 1024 }
-})
 
 //Calling Route
 
 userRoutes(app, upload);
 
-server.listen(3000, '192.168.1.15' || 'localhost', function () {
+server.listen(3000, '192.168.1.4' || 'localhost', function () {
     console.log('Node aplication ' + process.pid + ' iniciada');
 });
 

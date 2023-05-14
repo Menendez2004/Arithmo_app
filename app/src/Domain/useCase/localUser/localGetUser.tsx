@@ -1,5 +1,4 @@
 import { LocalSessionRepoImpl } from "../../../data/Repositories/LocaRepo";
-import { User } from "../../entities/User";
 
 const { getUser } = new LocalSessionRepoImpl();
 

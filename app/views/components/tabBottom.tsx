@@ -12,7 +12,7 @@ import { SettingsScreen } from '../Settings/SettingsScreen';
 const Tab = createBottomTabNavigator();
   export default function Navbar(){
     return (
-      
+
         <Tab.Navigator
         screenOptions={({ route }) => ({
           tabBarIcon: ({ focused, color, size }) => {
@@ -40,5 +40,3 @@ const Tab = createBottomTabNavigator();
       </Tab.Navigator>    
       );
   }
-
-

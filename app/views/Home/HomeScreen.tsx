@@ -27,11 +27,10 @@ export const HomeScreen = ({ navigation, route }: Props) => {
 
     useEffect(() => {
 
-        if (user?.session_token !== null && user?.session_token !== undefined) {
+        if(user?.session_token != null && user?.session_token != undefined) {
             navigation.replace('HomepageScream');
         }
     }, [user])
-
     return (
         //Etiqueta view funciona como uina columna
         //vista main, contenedor de todo
@@ -78,7 +77,7 @@ export const HomeScreen = ({ navigation, route }: Props) => {
                 />
 
                 <View >
-                    <RoundedBtm text='ENTRAR' onPress={() => navigation.replace('SelecDificultScreen')} />
+                    <RoundedBtm text='ENTRAR' onPress={() => login()} />
                 </View>
 
                 <View style={styles.formRegister}>
@@ -93,5 +92,6 @@ export const HomeScreen = ({ navigation, route }: Props) => {
                     source={require('../../imgs/burbuf.png')} />
             </View>
 
-        </View >);
+
+        </View >  );
 }

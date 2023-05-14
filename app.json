@@ -21,7 +21,7 @@
     "splash": {
       "image": "./assets/Arithmo.png",
       "resizeMode": "contain",
-      "backgroundColor": "#FFFFFF"
+      "backgroundColor": "#ffffff"
     },
     "assetBundlePatterns": [
       "**/*"
