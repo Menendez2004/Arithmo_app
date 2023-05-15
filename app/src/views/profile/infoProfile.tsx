@@ -2,8 +2,8 @@ import React from 'react'
 import { Button, Text, View } from 'react-native'
 import ServiceProfileInfo from './ServiceProfileInfo'
 import { StackScreenProps } from '@react-navigation/stack';
-import { RootStackParamList } from '../../../App';
-import ProfileStyle from '../../styles/ProfileStyle';
+import { RootStackParamList } from '../../../../App';
+import ProfileStyle from '../../../styles/ProfileStyle';
 import { Ionicons } from '@expo/vector-icons';
 
 
@@ -12,7 +12,7 @@ interface Props extends StackScreenProps<RootStackParamList, 'InfoProfileScreen'
 
 export const InfoProfileScreen = ({navigation, route}: Props) => {
 
-  const {removeSession} = ServiceProfileInfo();
+  const {removeSession, user} = ServiceProfileInfo();
   
   return (
     <View style={{flex: 1, }}>
@@ -24,7 +24,7 @@ export const InfoProfileScreen = ({navigation, route}: Props) => {
           size={150} 
           color='#088395'/>
 
-          <Text style={ProfileStyle.container_text} >Steve Sánchez</Text>
+          <Text style={ProfileStyle.container_text}>{user?.name}{user?.lastName}</Text>
         </View>
 
           <Text style={{fontWeight: 'bold', fontSize: 20, color:'#0A4D68', marginLeft: 30, marginTop: 15}} >
@@ -44,7 +44,7 @@ export const InfoProfileScreen = ({navigation, route}: Props) => {
             <View>
 
               <Text style={{color:'#0A4D68', fontWeight: 'bold'}}>Nombre:</Text>
-              <Text style={{color:'#0A4D68', }}>Steve</Text>
+              <Text style={{color:'#0A4D68', }}>{user?.name}</Text>
 
             </View> 
           </View>
@@ -61,7 +61,7 @@ export const InfoProfileScreen = ({navigation, route}: Props) => {
             <View>
 
               <Text style={{color:'#0A4D68', fontWeight: 'bold'}}>Apellido:</Text>
-              <Text style={{color:'#0A4D68', }}>Sánchez</Text>
+              <Text style={{color:'#0A4D68', }}>{user?.lastName}</Text>
 
             </View> 
           </View>
@@ -79,7 +79,7 @@ export const InfoProfileScreen = ({navigation, route}: Props) => {
             <View>
 
               <Text style={{color:'#0A4D68', fontWeight: 'bold'}}>Email:</Text>
-              <Text style={{color:'#0A4D68', }}>steve@gmail.com</Text>
+              <Text style={{color:'#0A4D68', }}>{user?.email}</Text>
 
             </View> 
           </View>
@@ -94,8 +94,8 @@ export const InfoProfileScreen = ({navigation, route}: Props) => {
 
             <View>
 
-              <Text style={{color:'#0A4D68', fontWeight: 'bold'}}>Genero:</Text>
-              <Text style={{color:'#0A4D68', }}>Masculino</Text>
+              <Text style={{color:'#0A4D68', fontWeight: 'bold'}}>Edad:</Text>
+              <Text style={{color:'#0A4D68', }}>{user?.edad}</Text>
 
             </View> 
           </View>
@@ -108,12 +108,6 @@ export const InfoProfileScreen = ({navigation, route}: Props) => {
               color='#0A4D68'  />
             </View>
 
-            <View>
-
-              <Text style={{color:'#0A4D68', fontWeight: 'bold'}}>Genero:</Text>
-              <Text style={{color:'#0A4D68', }}>Masculino</Text>
-
-            </View> 
           </View>
         </View>
         
@@ -128,10 +122,9 @@ export const InfoProfileScreen = ({navigation, route}: Props) => {
 
           <Button
           onPress={() =>{
-            navigation.navigate('PorfileUpdateScreen')
+            navigation.navigate('PorfileUpdateScreen',{user: user!})
           }}
           title='Editar Perfil'/>   
-          
             </View>
             
             

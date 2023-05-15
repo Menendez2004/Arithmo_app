@@ -1,36 +1,35 @@
 import React, { useEffect, useState } from "react";
-import { ModalPickImage } from '../../../src/components/modalPickImage';
+import { ModalPickImage } from "../../../components/modalPickImage";
 import { StackScreenProps } from '@react-navigation/stack';
-import { RootStackParamList } from '../../../../App';
+import { RootStackParamList } from '../../../../../App';
 import { Text, View, Image, ToastAndroid, TouchableOpacity } from "react-native";
-import { Ionicons } from '@expo/vector-icons';
-import { EvilIcons } from '@expo/vector-icons'; 
+import { EvilIcons } from '@expo/vector-icons';
 
-import EditiStyle from '../../../styles/EditStyle';
+import EditiStyle from "../../../../styles/EditStyle";
 import { StructureEdit } from "./Structure";
-import { RestructuringImput1 } from '../../../RestructuringImput1'; 
+import { StructureEdit2 } from "./Structure2";
 import ServiceEditProfile from './serviceEditProfile';
-import editProfileStyle from "../../../styles/editProfileStyle";
+import { RoundedBtm } from "../../../../RoundedBtm";
 
 interface Props extends StackScreenProps<RootStackParamList, 'PorfileUpdateScreen'> { };
 
-export const PorfileUpdateScreen = ({ navigation }: Props) => {
+export const PorfileUpdateScreen = ({ navigation, route }: Props) => {
+  const {user} = route.params;
   const {
     name,
     email,
     lastName,
-    password,
-    confirmPassword,
+    edad,
     loanding,
+    onChangeInfoUpdate,
     errorMessage,
-    user,
     image,
     onChange,
-    Register,
+    update,
     formValid,
     SelecImage,
     TakePicture,
-  } = ServiceEditProfile();
+  } = ServiceEditProfile(user);
 
   const [modalVisible, setModalVisible] = useState(false);
 
@@ -41,17 +40,7 @@ export const PorfileUpdateScreen = ({ navigation }: Props) => {
   }, [errorMessage]);
 
   useEffect(() => {
-    onChange('name', user?.name)
-    onChange('lastName', user?.name)
-    onChange('email', user?.email)
-  }, [user])
-
-
-  useEffect(() => {
-
-    if (user?.session_token != null && user?.session_token != undefined) {
-      navigation.navigate('PorfileUpdateScreen');
-    }
+    onChangeInfoUpdate(user?.name!, user?.lastName!, user?.edad!, user?.email!);
   }, [user])
 
   return (
@@ -78,52 +67,71 @@ export const PorfileUpdateScreen = ({ navigation }: Props) => {
               }
             </TouchableOpacity>
           </View>
-
         </View>
-
+        
         <View style={EditiStyle.container_3}>
 
+          <View style={[EditiStyle.Text, EditiStyle.circleIcon]} >
+          </View>
+          <Text style={EditiStyle.area1}>Nombre:</Text>
+          <EvilIcons name="pencil" style={EditiStyle.Icons1} />
 
-          <RestructuringImput1
-
+          <StructureEdit2
             placeholder="Nombres"
             KeyboardType="default"
-            image={require("../../../imgs/Name.png")}
+            image={require("../../../../imgs/Name.png")}
             property="name"
             onChangeText={onChange}
             value={name}
           />
 
-          <RestructuringImput1
+          <View style={[EditiStyle.Text, EditiStyle.circleIcon]} >
+          </View>
+          <Text style={EditiStyle.area1}>Apellido:</Text>
+          <EvilIcons name="pencil" style={EditiStyle.Icons1} />
+
+          <StructureEdit2
             placeholder="Apellidos"
             KeyboardType="default"
-            image={require("../../../imgs/lastname.png")}
+            image={require("../../../../imgs/lastname.png")}
             property="lastName"
             onChangeText={onChange}
             value={lastName}
           />
 
-          <View style={EditiStyle.Text} >
-            <Text style= {EditiStyle.area}>Email:</Text>
-          <EvilIcons name="pencil" style={EditiStyle.Icons} />
+          <View style={[EditiStyle.Text, EditiStyle.circleIcon]} >
           </View>
-          
+          <Text style={EditiStyle.area1}>Edad:</Text>
+          <EvilIcons name="pencil" style={EditiStyle.Icons1} />
+
+          <StructureEdit2
+            placeholder="Apellidos"
+            KeyboardType="default"
+            image={require("../../../../imgs/edad.png")}
+            property="edad"
+            onChangeText={onChange}
+            value={edad}
+          />
+
+          <View style={[EditiStyle.Text, EditiStyle.circleIcon]} >
+          </View>
+          <Text style={EditiStyle.area}>Email:</Text>
+          <EvilIcons name="pencil" style={EditiStyle.Icons} />
+
           <StructureEdit
             placeholder="Email"
             KeyboardType="default"
-            image={require("../../../imgs/email.png")}
+            image={require("../../../../imgs/email.png")}
             property="email"
             onChangeText={onChange}
             value={email}
           />
 
         </View>
-        
-
       </View>
 
       <View style={EditiStyle.button}>
-        <Text style={{ color: '#05BFDB', fontWeight: 'bold', fontSize: 15 }}>Actualizar Perfil</Text>
+        <RoundedBtm text="Actualizar datos" onPress={ () => update()}/>
       </View>
 
       <ModalPickImage

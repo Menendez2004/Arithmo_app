@@ -3,19 +3,19 @@ import React, { useEffect, useState } from "react";
 import { Text, View, Image, ActivityIndicator, ToastAndroid, TouchableOpacity } from "react-native";
 //Components
 import { StackScreenProps } from '@react-navigation/stack'
-import { RootStackParamList } from '../../../App';
-import { RoundedBtm } from '../../RoundedBtm';
-import { RoundedBtm2 } from '../../RoundedBtm';
-import { RestructuringImput } from "../../RestructuringImput";
-import { RestructuringImput1 } from '../../RestructuringImput1';
-import { ModalPickImage } from "../../src/components/modalPickImage";
+import { RootStackParamList } from '../../../../App';
+import { RoundedBtm } from '../../../RoundedBtm';
+import { RoundedBtm2 } from '../../../RoundedBtm';
+import { RestructuringImput } from "../../../RestructuringImput";
+import { RestructuringImput1 } from '../../../RestructuringImput1';
+import { ModalPickImage } from "../../../src/components/modalPickImage";
 //Screens
 import usesViewModelRegister from "./ServiceRegister";
 
 //styles
-import RegisterStyles from "../../styles/RegisterStyle";
-import styles from '../../styles/Styles';
-import { MyColors } from "../../styles/theme/Theme";
+import RegisterStyles from "../../../styles/RegisterStyle";
+import styles from '../../../styles/Styles';
+import { MyColors } from "../../../styles/theme/Theme";
 
 
 interface Props extends StackScreenProps<RootStackParamList, 'RegisterScreen'> { };
@@ -36,7 +36,8 @@ export const RegisterScreen = ({ navigation, route }: Props) => {
         Register,
         formValid,
         SelecImage,
-        TakePicture
+        TakePicture,
+        edad
     } = usesViewModelRegister();
 
     const [modalVisible, setModalVisible] = useState(false);
@@ -64,7 +65,7 @@ export const RegisterScreen = ({ navigation, route }: Props) => {
             <View style={RegisterStyles.form}>
                 <Image
                     style={RegisterStyles.burbu}
-                    source={require("../../imgs/burbu.png")}
+                    source={require("../../../imgs/burbu.png")}
                 />
 
                 <View style={RegisterStyles.logoContainer}>
@@ -72,7 +73,7 @@ export const RegisterScreen = ({ navigation, route }: Props) => {
                         {
                             image == ''
                                 ? <Image
-                                    source={require("../../imgs/profile.png")}
+                                    source={require("../../../imgs/profile.png")}
                                     style={RegisterStyles.logoImage}
                                 />
                                 : <Image
@@ -88,7 +89,7 @@ export const RegisterScreen = ({ navigation, route }: Props) => {
 
                     placeholder="Nombres"
                     KeyboardType="default"
-                    image={require("../../imgs/Name.png")}
+                    image={require("../../../imgs/Name.png")}
                     property="name"
                     onChangeText={onChange}
                     value={name}
@@ -97,16 +98,24 @@ export const RegisterScreen = ({ navigation, route }: Props) => {
                 <RestructuringImput1
                     placeholder="Apellidos"
                     KeyboardType="default"
-                    image={require("../../imgs/lastname.png")}
+                    image={require("../../../imgs/lastname.png")}
                     property="lastName"
                     onChangeText={onChange}
                     value={lastName}
                 />
 
+                <RestructuringImput1
+                    placeholder="edad"
+                    KeyboardType="default"
+                    image={require("../../../imgs/edad.png")}
+                    property="edad"
+                    onChangeText={onChange}
+                    value={edad}
+                />
                 <RestructuringImput
                     placeholder="Email"
                     KeyboardType="default"
-                    image={require("../../imgs/email.png")}
+                    image={require("../../../imgs/email.png")}
                     property="email"
                     onChangeText={onChange}
                     value={email}
@@ -115,7 +124,7 @@ export const RegisterScreen = ({ navigation, route }: Props) => {
                 <RestructuringImput1
                     placeholder="Contraseña"
                     KeyboardType="default"
-                    image={require("../../imgs/Password.png")}
+                    image={require("../../../imgs/Password.png")}
                     property="password"
                     onChangeText={onChange}
                     value={password}
@@ -125,12 +134,13 @@ export const RegisterScreen = ({ navigation, route }: Props) => {
                 <RestructuringImput1
                     placeholder="Confirmar Contraseña"
                     KeyboardType="default"
-                    image={require("../../imgs/confirmpass.png")}
+                    image={require("../../../imgs/confirmpass.png")}
                     property="confirmPassword"
                     onChangeText={onChange}
                     value={confirmPassword}
                     secureTextEntry={true}
                 />
+
 
                 <View>
                     <RoundedBtm text="CONFIRMAR" onPress={() => {
@@ -149,7 +159,7 @@ export const RegisterScreen = ({ navigation, route }: Props) => {
 
                 <Image
                     style={RegisterStyles.rightBurble}
-                    source={require("../../imgs/burbuf.png")}
+                    source={require("../../../imgs/burbuf.png")}
                 />
 
                 <ModalPickImage
@@ -163,12 +173,12 @@ export const RegisterScreen = ({ navigation, route }: Props) => {
 
                 {
                     loanding &&
-                    <ActivityIndicator 
-                        style={RegisterStyles.loading} 
-                        size="large" 
+                    <ActivityIndicator
+                        style={RegisterStyles.loading}
+                        size="large"
                         color={MyColors.primary} />
                 }
-                
+
 
             </View>
 

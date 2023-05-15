@@ -1,18 +1,19 @@
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { HomeScreen } from './app/views/Home/HomeScreen';
-import { RegisterScreen } from './app/views/Register/RegisterScreen';
-import { SelecDificultScreen } from './app/views/Dificults/selecDificultScreen';
-import { FacilScreen } from './app/views/Dificults/FacilScreen';
-import { DificilScreen } from './app/views/Dificults/DificilScreen';
-import { MediumScreen } from './app/views/Dificults/MediumScreen';
-import { ExpertScreen } from './app/views/Dificults/ExpertScreen';
-import { HomepageScream } from './app/views/index/HomepageScream';
-import { InfoProfileScreen } from './app/views/profile/infoProfile';
-import { GameScreen } from './app/views/game/GameScreen';
-import { SettingsScreen } from './app/views/Settings/SettingsScreen';
-import { PorfileUpdateScreen } from './app/views/profile/editProfile/editiProfile';
+import { HomeScreen } from './app/src/views/Home/HomeScreen';
+import { RegisterScreen } from './app/src/views/Register/RegisterScreen';
+import { SelecDificultScreen } from './app/src/views/Dificults/selecDificultScreen';
+import { FacilScreen } from './app/src/views/Dificults/FacilScreen';
+import { DificilScreen } from './app/src/views/Dificults/DificilScreen';
+import { MediumScreen } from './app/src/views/Dificults/MediumScreen';
+import { ExpertScreen } from './app/src/views/Dificults/ExpertScreen';
+import { HomepageScream } from './app/src/views/index/HomepageScream';
+import { InfoProfileScreen } from './app/src/views/profile/infoProfile';
+import { GameScreen } from './app/src/views/game/GameScreen';
+import { SettingsScreen } from './app/src/views/Settings/SettingsScreen';
+import { PorfileUpdateScreen } from './app/src/views/profile/editProfile/editiProfile';
+import { User } from './app/src/Domain/entities/User';
 
 export type RootStackParamList = {
   //principals screens 
@@ -28,7 +29,7 @@ export type RootStackParamList = {
   HomepageScream: undefined,
   GameScreen: undefined,
   SettingsScreen: undefined,
-  PorfileUpdateScreen: undefined,
+  PorfileUpdateScreen: {user: User},
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -51,10 +52,6 @@ const App = () => {
             // headerShown: true,
             title: "Registrate"
           }} />
-        <Stack.Screen
-          name="InfoProfileScreen"
-          component={InfoProfileScreen}
-        />
         <Stack.Screen
           name="SelecDificultScreen"
           component={SelecDificultScreen}
@@ -113,6 +110,15 @@ const App = () => {
             headerShown: false,
             title: "SettingsScreen"
           }} />
+
+          <Stack.Screen
+            name="InfoProfileScreen"
+            component={InfoProfileScreen}
+            options={{
+              headerShown: false,
+              title: "InfoProfileScreen"
+            }}
+          />
 
           <Stack.Screen
           name='PorfileUpdateScreen'

@@ -10,25 +10,31 @@ const editProfileStyle = StyleSheet.create({
         width: "100%",
         flex: 1,
         borderBottomWidth: 1,
-        marginLeft: "28%",
-        bottom: "31.50%",
+        marginLeft: "6%",
+        bottom: "12%",
         borderBottomColor: 0
 
     },
     imputForm: {
         flexDirection: "row",
-        marginTop: 35,
         width: "80%"
 
     },
     formIcon: {
         width: 25,
         height: 18,
-        marginLeft:"3%",
-        bottom: "30%",
+        marginLeft:"7%",
+        bottom: 43,
         alignContent: "center",
-        alignItems: "center"
+        alignItems: "center",
+        
 
+    },
+    formIcon1: {
+        width: 24,
+        height: 27,
+        marginLeft:"7%",
+        bottom: 45
     },
     formRegisterText: {
         fontSize: 15.5,
@@ -43,6 +49,7 @@ const editProfileStyle = StyleSheet.create({
         fontWeight: 'bold',
         marginLeft: 10
     },
+
 
 });
 

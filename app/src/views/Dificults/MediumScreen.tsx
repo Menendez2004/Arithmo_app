@@ -1,24 +1,18 @@
 import React from 'react'
 import { Text, View, Image, TextInput, TouchableOpacity } from 'react-native';
-import { StackNavigationProp } from '@react-navigation/stack'
-import { useNavigation } from '@react-navigation/native';
-import { RootStackParamList } from '../../../App';
-import LevelStyle from '../../styles/LevelStyle';
+import LevelStyle from '../../../styles/LevelStyle';
 
 
-export const FacilScreen = () => {
-
-    const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
-
+export const MediumScreen = () => {
     return (
         <View style={LevelStyle.container}>
 
             <View style={LevelStyle.container_2}>
 
-            <Image style={LevelStyle.image_1}  source={require('../../imgs/multiplicar.png')} />
+            <Image style={LevelStyle.image_1}  source={require('../../../imgs/multiplicar.png')} />
 
                 <View style={LevelStyle.container_text}>
-                    <Text style={LevelStyle.text}>Dificultad Fácil</Text>
+                    <Text style={LevelStyle.text}>Dificultad Medio</Text>
                 </View>
                 
                 <Text style={LevelStyle.level_text2}>Niveles</Text>
@@ -27,7 +21,7 @@ export const FacilScreen = () => {
                     <View >
                         <View style={LevelStyle.container_4}>
                             <View style={LevelStyle.level}>
-                                <Text style={LevelStyle.level_text} onPress={() => navigation.navigate('GameScreen')} >1</Text>
+                                <Text style={LevelStyle.level_text}>1</Text>
                             </View>
                             <Text style={LevelStyle.text_2}>Completado</Text>
                         </View>
@@ -77,7 +71,7 @@ export const FacilScreen = () => {
 
                 
             </View>
-            <Image style={LevelStyle.image_2}  source={require('../../imgs/signo.png')} />
+            <Image style={LevelStyle.image_2}  source={require('../../../imgs/signo.png')} />
 
         </View>
     )

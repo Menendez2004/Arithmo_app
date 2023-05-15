@@ -1,15 +1,13 @@
 import React, { useState } from "react";
 import * as ImagePicker from 'expo-image-picker';
 //auth cases
-import { RegisterWithImageUseCase } from "../../src/Domain/useCase/auth/RegisterWithImageAuth";
-import { RegisterAuthUseCase } from "../../src/Domain/useCase/auth/RegisterAuth";
-import { SaveUserCase } from '../../src/Domain/useCase/localUser/localSaveUser';
-import { useLocalUser } from '../../src/presentation/hooks/useLocalUser';
+import { SaveUserCase } from '../../../../src/Domain/useCase/localUser/localSaveUser';
+import { useLocalUser } from "../../../presentation/hooks/useLocalUser";
+import { UpdateUserUserCase } from "../../../Domain/useCase/user/updateUser";
+import { UpdateWhitImageUserUseCase } from "../../../Domain/useCase/user/updateWithImageUser";
+import { User } from "../../../Domain/entities/User";
 
-
-
-const RegisterViewModel = () => {
-
+const ServiceEditProfile = (user: User) => {
   const [errorMessage, setErrorMessage] = useState('');
   const [values, setValues] = useState({
     name: "",
@@ -17,12 +15,12 @@ const RegisterViewModel = () => {
     email: "",
     image: "",
     password: "",
+    edad: "",
     confirmPassword: "",
   });
   
   const [loanding, setLoanding] = useState(false)
   const [file, setFile] = useState<ImagePicker.ImagePickerAsset>()
-  const { user, getUserSession } = useLocalUser();
 
   const SelecImage = async () => {
     // No permissions request is necessary for launching the image library
@@ -65,16 +63,19 @@ const RegisterViewModel = () => {
     setValues({ ...values, [property]: value });
   };
 
-  const Register = async () => {
+  const onChangeInfoUpdate = (name: string, lastName: string, edad: string, email: string,) => {
+    setValues({ ...values, name,  lastName,  edad,  email });
+  };
+
+  const update = async () => {
     if (formValid()) {
       setLoanding(true);
-      // const response = await RegisterAuthUseCase(values);
-      const response = await RegisterWithImageUseCase(values, file!);
-      setLoanding(false)
+      const response = await UpdateUserUserCase(values);
+      setLoanding(false);
       console.log('RESULT: ' + JSON.stringify(response));
       if (response.success){
         await SaveUserCase(response.data);
-        getUserSession();
+        // getUserSession();
       }else{
         setErrorMessage(response.message);
       }
@@ -113,20 +114,8 @@ const RegisterViewModel = () => {
       setErrorMessage('Campo vacio : Email no puede estar vacio ');
       return false;
     }
-    if (values.password === '') {
-      setErrorMessage('Campo vacio : Contraseña no puede estar vacio');
-      return false;
-    }
-    if (values.confirmPassword === '') {
-      setErrorMessage('Campo vacio : Confirmar contraseña');
-      return false;
-    }
-    if (values.password != values.confirmPassword) {
-      setErrorMessage('Las contraseñas no coinciden, verifica que hayas escrito correctamenete tu contraseña nuevamente');
-      return false;
-    }
-    if (values.image === '') {
-      setErrorMessage('Campo vacio : Foto no puede estar vacio');
+    if (values.edad === '') {
+      setErrorMessage('Campo vacio : Edad no puede estar vacio');
       return false;
     }
     return true;
@@ -140,15 +129,16 @@ const RegisterViewModel = () => {
   return {
     ...values,
     onChange,
-    Register,
+    onChangeInfoUpdate,
+    update,
     formValid,
     TakePicture,
-    errorMessage,
     SelecImage,
+    errorMessage,
     isValidEmail,
+    loanding,
     user,
-    loanding
   };
 };
 
-export default RegisterViewModel;
+export default ServiceEditProfile;

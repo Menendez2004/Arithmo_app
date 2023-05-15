@@ -5,16 +5,16 @@ const EditiStyle = StyleSheet.create({
         flex: 1,
         flexDirection: 'column',
         padding: 15,
-        alignItems: 'center'
+        alignItems: 'center',
     },
 
     container2: {
         backgroundColor: 'white',
         borderRadius: 8,
         width: '100%',
-        height: '70%',
+        height: '75%',
         alignItems: 'center',
-        marginTop:'25%'
+        marginTop:'18%',
         // transform: [{translateY:50}]
     },
 
@@ -40,7 +40,17 @@ const EditiStyle = StyleSheet.create({
         borderRadius: 60,
         marginRight:"7%"
     },
-
+    circleIcon:{
+        backgroundColor: '#0A4D68',
+        width: 45,
+        height: 45,
+        marginLeft: 10,
+        borderRadius: 80,
+        alignItems: 'flex-end',
+        justifyContent: 'flex-end',
+        marginTop: 15,
+        transform: [{translateY: -21}]
+    },
     container_3:{
         width: '100%',
         alignItems: 'flex-start',
@@ -52,7 +62,7 @@ const EditiStyle = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         paddingHorizontal: 16,
-        marginTop: 40,
+        // marginTop: 100,
         
     },
 
@@ -72,19 +82,34 @@ const EditiStyle = StyleSheet.create({
 
     },
     Text:{
-        marginTop: 35,
+        margin: -65,
         fontSize: 10,
+        // marginLeft:25,
+        // marginTop: 100,
     },
     area:{
-        marginLeft:"12%",
-        fontSize: 15,
-        fontWeight: 'bold'
+        marginLeft:"18%",
+        fontSize: 16,
+        fontWeight: 'bold',
+        color: "#0A4D68",
     },
+    area1:{
+        marginLeft:"17%",
+        fontSize: 16,
+        fontWeight: 'bold',
+        color: "#0A4D68",
+    },
+    
     Icons:{
         fontSize:35,
-        bottom: 34,
-        marginLeft: "78%"
-    }    
+        bottom: 12,
+        marginLeft: "70%"
+    },
+    Icons1:{
+        fontSize:35,
+        bottom: 12,
+        marginLeft: "70%"
+    }       
 })
 
 export default EditiStyle

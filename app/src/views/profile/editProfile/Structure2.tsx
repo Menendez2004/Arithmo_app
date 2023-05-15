@@ -1,7 +1,6 @@
 import React from 'react';
-import editProfileStyle from "../../../styles/editProfileStyle";
-import { View, Image, TextInput, KeyboardType } from 'react-native';
-
+import editProfileStyle from '../../../../styles/editProfileStyle';
+import { Text, View, Image, TextInput, KeyboardType } from 'react-native';
 
 interface props {
     image: any,
@@ -14,7 +13,7 @@ interface props {
 
 };
 
-export const StructureEdit = ({
+export const StructureEdit2 = ({
     image, 
     placeholder, 
     value, 
@@ -28,11 +27,10 @@ export const StructureEdit = ({
         <View style={editProfileStyle.imputForm} >
                     {/*imagenes de formulario email*/}
                     <Image source={ image }
-                        style={editProfileStyle.formIcon} />
-                        
+                        style={editProfileStyle.formIcon1} />
 
                     <TextInput
-                        //@ts-ignore
+                    //@ts-ignore
                         style={editProfileStyle.texImputForm}
                         placeholder={placeholder}
                         keyboardType={KeyboardType}
@@ -44,4 +42,5 @@ export const StructureEdit = ({
                 
     );
 };
+
 

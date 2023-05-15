@@ -11,7 +11,7 @@ const ProfileStyle = StyleSheet.create({
 
     container_text:{
         color: '#088395',
-        fontSize: 30
+        fontSize: 25
     },
 
     container_2:{
@@ -19,7 +19,7 @@ const ProfileStyle = StyleSheet.create({
         backgroundColor: 'white',
         elevation: 20,
         width: "80%",
-        height: "50%",
+        height: "51.5%",
         justifyContent: 'center',
         padding: 15,
         marginTop: 15,

@@ -8,12 +8,12 @@ import { Ionicons } from '@expo/vector-icons';
 import { InfoProfileScreen } from '../../views/profile/infoProfile';
 import { SelecDificultScreen } from '../Dificults/selecDificultScreen';
 import { SettingsScreen } from '../Settings/SettingsScreen';
-import { EditiProfile } from '../profile/editProfile/editiProfile';
+import { PorfileUpdateScreen } from '../profile/editProfile/editiProfile';
 
 const Tab = createBottomTabNavigator();
   export default function Navbar(){
     return (
-
+      //@ts-ignore
         <Tab.Navigator
         screenOptions={({ route }) => ({
           tabBarIcon: ({ focused, color, size }) => {
@@ -28,14 +28,16 @@ const Tab = createBottomTabNavigator();
             } else if (route.name === 'Dificults') {
               iconName = focused ? 'game-controller-outline' : 'game-controller-outline';
             }
-
+              //@ts-ignore
             return <Ionicons name={iconName} size={size} color={color} />;
           },
           tabBarActiveTintColor: '#05BFDB',
           tabBarInactiveTintColor: 'gray',
         })}
       >
+            
         <Tab.Screen name="Profile" component={InfoProfileScreen} />
+        
         <Tab.Screen name="Dificults" component={SelecDificultScreen} />
         <Tab.Screen name="Settings" component={SettingsScreen} />
       </Tab.Navigator>    

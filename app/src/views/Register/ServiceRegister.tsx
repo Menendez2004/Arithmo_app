@@ -8,7 +8,7 @@ import { useLocalUser } from '../../../src/presentation/hooks/useLocalUser';
 
 
 
-const ServiceEditProfile = () => {
+const RegisterViewModel = () => {
 
   const [errorMessage, setErrorMessage] = useState('');
   const [values, setValues] = useState({
@@ -18,6 +18,7 @@ const ServiceEditProfile = () => {
     image: "",
     password: "",
     confirmPassword: "",
+    edad: "",
   });
   
   const [loanding, setLoanding] = useState(false)
@@ -70,8 +71,8 @@ const ServiceEditProfile = () => {
       setLoanding(true);
       // const response = await RegisterAuthUseCase(values);
       const response = await RegisterWithImageUseCase(values, file!);
-      setLoanding(false)
       console.log('RESULT: ' + JSON.stringify(response));
+      setLoanding(false)
       if (response.success){
         await SaveUserCase(response.data);
         getUserSession();
@@ -125,6 +126,10 @@ const ServiceEditProfile = () => {
       setErrorMessage('Las contraseñas no coinciden, verifica que hayas escrito correctamenete tu contraseña nuevamente');
       return false;
     }
+    if (values.edad === '') {
+      setErrorMessage('Campo vacio : Edad no puede estar vacio');
+      return false;
+    }
     if (values.image === '') {
       setErrorMessage('Campo vacio : Foto no puede estar vacio');
       return false;
@@ -143,12 +148,12 @@ const ServiceEditProfile = () => {
     Register,
     formValid,
     TakePicture,
-    SelecImage,
     errorMessage,
+    SelecImage,
     isValidEmail,
-    loanding,
     user,
+    loanding
   };
 };
 
-export default ServiceEditProfile;
+export default RegisterViewModel;

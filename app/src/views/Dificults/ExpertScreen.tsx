@@ -1,6 +1,6 @@
 import React from 'react'
 import { Text, View, Image, TextInput, TouchableOpacity } from 'react-native';
-import LevelStyle from '../../styles/LevelStyle';
+import LevelStyle from '../../../styles/LevelStyle';
 
 
 export const ExpertScreen = () => {
@@ -9,7 +9,7 @@ export const ExpertScreen = () => {
 
             <View style={LevelStyle.container_2}>
 
-            <Image style={LevelStyle.image_1}  source={require('../../imgs/multiplicar.png')} />
+            <Image style={LevelStyle.image_1}  source={require('../../../imgs/multiplicar.png')} />
 
                 <View style={LevelStyle.container_text}>
                     <Text style={LevelStyle.text}>Dificultad Experto</Text>
@@ -71,7 +71,7 @@ export const ExpertScreen = () => {
 
                 
             </View>
-            <Image style={LevelStyle.image_2}  source={require('../../imgs/signo.png')} />
+            <Image style={LevelStyle.image_2}  source={require('../../../imgs/signo.png')} />
 
         </View>
   )

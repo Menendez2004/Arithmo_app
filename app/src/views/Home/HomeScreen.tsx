@@ -4,13 +4,13 @@ import { StackScreenProps } from '@react-navigation/stack'
 import { Text, View, Image, TouchableOpacity, ToastAndroid } from 'react-native';
 
 //components 
-import styles from '../../styles/Styles';
+import styles from '../../../styles/Styles';
 import ServiceHome from './ServiceHome'
-import { RoundedBtm } from '../../RoundedBtm';
-import { RoundedBtm2 } from '../../RoundedBtm';
-import { RestructuringImput } from '../../RestructuringImput'
-import { RestructuringImput1 } from '../../RestructuringImput1';
-import { RootStackParamList } from '../../../App';
+import { RoundedBtm } from '../../../RoundedBtm';
+import { RoundedBtm2 } from '../../../RoundedBtm';
+import { RestructuringImput } from '../../../RestructuringImput';
+import { RestructuringImput1 } from '../../../RestructuringImput1';
+import { RootStackParamList } from '../../../../App';
 
 interface Props extends StackScreenProps<RootStackParamList, 'HomeScreen'> { };
 
@@ -46,17 +46,17 @@ export const HomeScreen = ({ navigation, route }: Props) => {
 
                 <Image
                     style={styles.burbu}
-                    source={require('../../imgs/burbu.png')} />
+                    source={require('../../../imgs/burbu.png')} />
 
                 <View style={styles.logoContainer}>
-                    <Image source={require('../../imgs/icons.png')}
+                    <Image source={require('../../../imgs/icons.png')}
                         style={styles.logoImage} />
                 </View>
 
 
                 <RestructuringImput
 
-                    image={require('../../imgs/email.png')}
+                    image={require('../../../imgs/email.png')}
                     placeholder='correo electronico'
                     KeyboardType='email-address'
                     property='email'
@@ -66,7 +66,7 @@ export const HomeScreen = ({ navigation, route }: Props) => {
 
                 {/*ivista del botón de la password*/}
                 <RestructuringImput1
-                    image={require('../../imgs/Password.png')}
+                    image={require('../../../imgs/Password.png')}
                     placeholder='password'
                     KeyboardType='default'
                     property='password'
@@ -89,7 +89,7 @@ export const HomeScreen = ({ navigation, route }: Props) => {
 
                 <Image
                     style={styles.rightBurble}
-                    source={require('../../imgs/burbuf.png')} />
+                    source={require('../../../imgs/burbuf.png')} />
             </View>
 
 

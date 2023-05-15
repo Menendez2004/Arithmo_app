@@ -2,8 +2,8 @@ import React from 'react'
 import { Text, View, Image, TextInput, TouchableOpacity, ScrollView } from 'react-native';
 import { StackNavigationProp } from '@react-navigation/stack'
 import { useNavigation } from '@react-navigation/native';
-import { RootStackParamList } from '../../../App';
-import DificultStyle from '../../styles/DIficultStyle';
+import { RootStackParamList } from '../../../../App';
+import DificultStyle from '../../../styles/DIficultStyle';
 import Navbar from '../components/tabBottom';
 
 export const SelecDificultScreen = () => {
@@ -15,7 +15,7 @@ export const SelecDificultScreen = () => {
             <View style={DificultStyle.container_user}>
 
 
-                <Image style={DificultStyle.image2} source={require('../../imgs/resta.png')} />
+                <Image style={DificultStyle.image2} source={require('../../../imgs/resta.png')} />
             </View>
 
             <View style={DificultStyle.container_2}>
@@ -49,7 +49,7 @@ export const SelecDificultScreen = () => {
 
             <View style={DificultStyle.container_4}>
 
-                <Image style={DificultStyle.image3} source={require('../../imgs/suma.png')} />
+                <Image style={DificultStyle.image3} source={require('../../../imgs/suma.png')} />
 
             </View>
             
