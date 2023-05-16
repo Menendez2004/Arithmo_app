@@ -9,6 +9,5 @@ Proyecto el cual tiene como finalidad crear una app movil para desarrollar las c
 + Carlos Alirio Toledo Rodriguez
 
 ##Aplicaciones utilizadas:
-![image](https://github.com/Menendez2004/Arithmo_app/assets/87096313/9a702c76-7994-424b-ac37-05e19a518867)
-![image](https://github.com/Menendez2004/Arithmo_app/assets/87096313/aedf02c1-3c89-4baf-8a82-54b8a0d0e194)
+React Native, Node js, MySQL
 
